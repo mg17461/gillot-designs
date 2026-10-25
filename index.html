@@ -883,16 +883,17 @@ button:focus-visible,a:focus-visible,input:focus-visible{outline:2px solid #1212
 <h2 style="margin: 0; font-family: 'Abril Fatface', 'Bodoni 72', Didot, Georgia, serif; font-weight: 400; font-size: clamp(40px, 5vw, 72px); line-height: 1.02; text-wrap: balance">Have a project in mind?</h2>
 <p style="margin: 0; font-size: 17px; line-height: 1.7; color: #3A3833; max-width: 30em">Tell me a little about the site, the stage you're at and what you need, and I'll get back to you.</p>
 <div style="display: flex; flex-direction: column; gap: 8px; font-size: 16px; padding-top: 8px">
-<a href="mailto:[your@email]" style="font-weight: 600; text-underline-offset: 6px">[your@email]</a>
-<span style="color: #3A3833">[Phone]</span>
+<a href="mailto:milogillot@gmail.com" style="font-weight: 600; text-underline-offset: 6px">milogillot@gmail.com</a>
+<span style="color: #3A3833">UK (WhatsApp): <a href="https://wa.me/447508086177" target="_blank" rel="noopener" style="color: #121212; text-underline-offset: 4px">+44 7508 086177</a></span>
+<span style="color: #3A3833">Spain (call or text): <a href="tel:+34609900810" style="color: #121212; text-underline-offset: 4px">+34 609 900 810</a></span>
 <span style="color: #3A3833">Ibiza, Balearic Islands</span>
 </div>
 </div>
 
 <sc-if value="{{sent}}" hint-placeholder-val="{{ false }}">
 <div class="fade" role="status" style="display: flex; flex-direction: column; gap: 16px; justify-content: center; padding: 40px; border: 1.5px solid #121212; background: #FFFFFF">
-<h3 style="margin: 0; font-family: 'Abril Fatface', Georgia, serif; font-weight: 400; font-size: 36px">Thank you.</h3>
-<p style="margin: 0; font-size: 16px; line-height: 1.65; color: #3A3833">Your enquiry has been sent. I'll reply as soon as I can.</p>
+<h3 style="margin: 0; font-family: 'Abril Fatface', Georgia, serif; font-weight: 400; font-size: 36px">Nearly there.</h3>
+<p style="margin: 0; font-size: 16px; line-height: 1.65; color: #3A3833">Your email app should now open with your enquiry ready to send. If it doesn't, email me at <a href="mailto:milogillot@gmail.com" style="color: #121212; text-underline-offset: 4px">milogillot@gmail.com</a> or message me on WhatsApp.</p>
 <div><button class="btn btn-ghost" type="button" onClick="{{reset}}" style="font: inherit; font-size: 14px; font-weight: 600; background: transparent; color: #121212; border: 1.5px solid #121212; padding: 12px 20px; min-height: 44px; cursor: pointer">Send another</button></div>
 </div>
 </sc-if>
@@ -949,7 +950,6 @@ button:focus-visible,a:focus-visible,input:focus-visible{outline:2px solid #1212
 <img class="logo" src="/_blob/d3019039e66ba58b28e8b389828798bc" alt="Gillot Designs" style="height: 44px; width: auto; display: block">
 <div style="display: flex; flex-wrap: wrap; gap: 8px 28px; font-size: 13px; color: #55524C">
 <span>© 2026 Gillot Designs · Milo Gillot</span>
-<span>NIF [your NIF]</span>
 <a href="#top" style="color: #55524C">Legal notice &amp; privacy</a>
 </div>
 </div>
@@ -1508,7 +1508,15 @@ mv: mv,
 needs: needs,
 sent: this.state.sent,
 notSent: !this.state.sent,
-submit: function (e) { if (e && e.preventDefault) e.preventDefault(); self.setState({ sent: true }); },
+submit: function (e) {
+if (e && e.preventDefault) e.preventDefault();
+var f = e && e.currentTarget, g = function (n) { var el = f && f.elements && f.elements[n]; return el ? String(el.value || "").trim() : ""; };
+var picked = Object.keys(self.state.needs).filter(function (k) { return self.state.needs[k]; });
+var body = "Name: " + g("name") + "\nEmail: " + g("email") + "\nProject location: " + g("location") + "\nProject type: " + g("scale") + "\nHelp with: " + (picked.length ? picked.join(", ") : "-") + "\n\n" + g("message");
+var subject = "Project enquiry" + (g("name") ? " from " + g("name") : "");
+window.location.href = "mailto:milogillot@gmail.com?subject=" + encodeURIComponent(subject) + "&body=" + encodeURIComponent(body);
+self.setState({ sent: true });
+},
 reset: function () { self.setState({ sent: false, needs: {} }); }
 };
 }
