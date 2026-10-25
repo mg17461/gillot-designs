@@ -10,6 +10,28 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Abril+Fatface&amp;family=Montserrat:wght@400;500;600&amp;display=swap">
 <style>
 body{margin:0;background:#F5F3EE}
+/* Keep the interactive building section within a desktop viewport. */
+.hero{padding:clamp(24px,3vw,40px) clamp(16px,4vw,48px) clamp(32px,4vw,56px)}
+.hero-visual{margin:0;display:flex;flex-direction:column;gap:12px;min-width:0}
+.hero-diagram{display:block;width:100%;height:auto}
+.hero-layers{display:flex;flex-wrap:wrap;gap:8px}
+.hero-layers .chip{font-size:13px;letter-spacing:.04em;padding:10px 16px}
+.hero-season{display:flex;flex-wrap:wrap;align-items:center;gap:4px 12px}
+.season-toggle{display:inline-flex;gap:4px}
+.season-choice{font:inherit;font-size:13px;font-weight:600;min-height:44px;padding:8px 18px;border:1px solid #9C978C;background:transparent;color:#121212;cursor:pointer}
+.season-choice[aria-pressed="true"]{background:#121212;border-color:#121212;color:#F5F3EE}
+.hero-caption{margin:0;font-size:14px;line-height:1.4;color:#3A3833}
+@media (min-width:1024px){
+  .hero{padding-top:16px;padding-bottom:16px}
+  .hero-visual{gap:6px}
+  /* Prioritise the drawing; compact controls and keywords sit around it. */
+  .hero-diagram{max-height:clamp(280px,calc(100svh - 275px),500px)}
+}
+@media (min-width:1024px) and (max-width:1150px){
+  .hero-layers{gap:6px}
+  .hero-layers .chip{font-size:12px;letter-spacing:.02em;padding:10px}
+}
+
 a{color:#121212}a:hover{color:#55524C}
 .logo{mix-blend-mode:multiply}
 .navlink{text-decoration:none;color:#121212}
@@ -20,8 +42,59 @@ a{color:#121212}a:hover{color:#55524C}
 .btn-light:hover{background:#E4E0D6 !important}
 .chip{transition:background-color .15s ease,color .15s ease}
 .chip:hover{border-color:#121212 !important}
-.svc{transition:background-color .2s ease,color .2s ease,padding-left .2s ease}
-.svc:hover{padding-left:28px !important}
+/* Shared page rhythm for the main content sections. */
+:root{--page-width:1200px;--page-gutter:clamp(16px,4vw,48px);--section-space:clamp(72px,9vw,120px);--section-title-size:clamp(36px,4.4vw,60px)}
+.section-frame{max-width:var(--page-width);margin:0 auto;padding:var(--section-space) var(--page-gutter)}
+.section-title{margin:0;font-family:'Abril Fatface','Bodoni 72',Didot,Georgia,serif;font-weight:400;font-size:var(--section-title-size);line-height:1.05}
+.section-eyebrow{margin:0;font-size:13px;font-weight:600;letter-spacing:.28em;text-transform:uppercase;color:#55524C}
+/* Services: keep the explanation and example alongside the six choices. */
+.services-section{display:flex;flex-direction:column;gap:48px}
+.services-intro{display:flex;flex-direction:column;gap:16px}
+.services-intro-copy{margin:0;max-width:62em;font-size:17px;line-height:1.65;color:#3A3833;text-wrap:pretty}
+.services-layout{display:grid;grid-template-columns:200px minmax(0,1fr);border-top:1.5px solid #121212}
+.services-nav{display:flex;flex-direction:column;border-right:1px solid #D9D5CC}
+.services-nav .svc{font:inherit;font-size:15px;font-weight:600;line-height:1.35;text-align:left;display:flex;align-items:baseline;gap:12px;padding:16px;min-height:64px;border:0;border-bottom:1px solid #D9D5CC;cursor:pointer}
+.service-number{font-family:'Abril Fatface',Georgia,serif;font-size:18px;font-weight:400;min-width:24px}
+.service-panel{min-width:0;min-height:620px;box-sizing:border-box;padding:28px;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);grid-template-rows:auto 1fr auto;gap:20px 28px;background:#FFFFFF;border-bottom:1px solid #D9D5CC}
+.service-heading{grid-column:1/-1;display:grid;gap:8px}
+.service-heading p{margin:0;font-size:11px;font-weight:600;letter-spacing:.2em;text-transform:uppercase}
+.service-heading h3{margin:0;font-family:'Abril Fatface','Bodoni 72',Didot,Georgia,serif;font-weight:400;font-size:clamp(26px,2.4vw,34px);line-height:1.1}
+.service-details{min-width:0;display:flex;flex-direction:column;gap:12px}
+.service-summary{margin:0;font-size:16px;line-height:1.55;color:#3A3833;text-wrap:pretty}
+.service-points{margin:0;padding:0;list-style:none;border-top:1px solid #D9D5CC}
+.service-point{display:flex;gap:10px;align-items:baseline;padding:8px 0;border-bottom:1px solid #D9D5CC;font-size:14px;line-height:1.5}
+.service-output{min-width:0;display:flex;flex-direction:column;gap:16px}
+.service-figure{margin:0;display:flex;flex-direction:column;gap:8px}
+.service-chart{background:#FFFFFF;border:1px solid #D9D5CC;padding:10px}
+.service-tools{display:flex;flex-wrap:wrap;align-items:center;gap:6px}
+.service-enquiry{grid-column:1/-1;padding-top:4px}
+.service-enquiry a{font-size:14px;font-weight:600;text-underline-offset:5px;line-height:1.5}
+@media (min-width:1024px){
+ .service-panel{grid-template-columns:minmax(310px,.9fr) minmax(0,1.4fr)}
+ .service-heading{grid-column:1;grid-row:1}
+ .service-details{grid-column:1;grid-row:2}
+ .service-output{grid-column:2;grid-row:1/4;justify-content:center;gap:12px}
+ .service-enquiry{grid-column:1;grid-row:3}
+ .service-chart{border:0;padding:0}
+}
+@media (min-width:1024px) and (max-width:1150px){
+ .services-layout{grid-template-columns:180px minmax(0,1fr)}
+ .service-panel{padding:24px;gap:18px 20px}
+ .services-nav .svc{font-size:14px;padding:14px 12px}
+}
+@media (max-width:1023px){
+ .services-layout{grid-template-columns:1fr}
+ .services-nav{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));border-right:0}
+ .service-panel{min-height:0}
+}
+@media (max-width:640px){
+ .service-panel{grid-template-columns:minmax(0,1fr);padding:20px 16px}
+ .services-nav .svc{font-size:13px;padding:12px;gap:8px}
+ .service-output{grid-row:3}
+}
+
+.svc{transition:background-color .2s ease,color .2s ease}
+.svc[aria-pressed="false"]:hover{background:#E4E0D6 !important}
 .layer{transition:opacity .4s ease,fill-opacity .4s ease}
 .field:focus{outline:2px solid #121212;outline-offset:2px}
 button:focus-visible,a:focus-visible,input:focus-visible{outline:2px solid #121212;outline-offset:3px}
@@ -82,9 +155,8 @@ button:focus-visible,a:focus-visible,input:focus-visible{outline:2px solid #1212
 </header>
 
 <!-- HERO -->
-<section id="top" style="max-width: 1200px; margin: 0 auto; padding: clamp(24px, 3vw, 40px) clamp(16px, 4vw, 48px) clamp(32px, 4vw, 56px); display: grid; grid-template-columns: repeat(auto-fit, minmax(min(440px, 100%), 1fr)); gap: 32px 56px; align-items: center">
+<section id="top" class="hero" style="max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(440px, 100%), 1fr)); gap: 32px 56px; align-items: center">
 <div style="display: flex; flex-direction: column; gap: 20px; container-type: inline-size">
-<p class="rise" style="margin: 0; font-size: 13px; font-weight: 600; letter-spacing: 0.28em; text-transform: uppercase; color: #55524C">Building energy modelling · New build &amp; retrofit</p>
 <h1 class="rise d1" style="margin: 0; font-family: 'Abril Fatface', 'Bodoni 72', Didot, Georgia, serif; font-weight: 400; font-size: clamp(36px, 4.6vw, 66px); font-size: calc(100cqi / 7.72); line-height: 1.02; letter-spacing: 0"><span style="white-space: nowrap">Better buildings,</span><br><span style="white-space: nowrap">by design.</span></h1>
 <div class="rise d2" style="display: flex; flex-direction: column; gap: 10px; max-width: 34em">
 <p style="margin: 0; font-size: 17px; line-height: 1.65; color: #3A3833; text-wrap: pretty">I'm Milo Gillot, a Passivhaus Designer with a Master's degree in Civil Engineering. I work with architects, developers and private clients in the UK and Spain, on projects ranging from small domestic renovations to large residential developments.</p>
@@ -96,13 +168,13 @@ button:focus-visible,a:focus-visible,input:focus-visible{outline:2px solid #1212
 </div>
 </div>
 
-<figure class="rise d4" style="margin: 0; display: flex; flex-direction: column; gap: 12px">
-<div role="group" aria-label="Show a layer of the building section" style="display: flex; flex-wrap: wrap; gap: 8px">
+<figure class="hero-visual rise d4">
+<div class="hero-layers" role="group" aria-label="Show a layer of the building section">
 <sc-for list="{{layers}}" as="l" hint-placeholder-count="3">
-<button class="chip" type="button" onClick="{{l.pick}}" aria-pressed="{{l.pressed}}" style="font: inherit; font-size: 13px; font-weight: 600; letter-spacing: 0.04em; min-height: 44px; padding: 10px 16px; border: 1.5px solid {{l.border}}; background: {{l.bg}}; color: {{l.fg}}; cursor: pointer">{{l.label}}</button>
+<button class="chip" type="button" onClick="{{l.pick}}" aria-pressed="{{l.pressed}}" style="font-family: inherit; font-weight: 600; min-height: 44px; border: 1.5px solid {{l.border}}; background: {{l.bg}}; color: {{l.fg}}; cursor: pointer">{{l.label}}</button>
 </sc-for>
 </div>
-<svg viewBox="0 0 480 430" role="img" aria-label="Section through a two-storey house with a roof terrace. Use the buttons to highlight the fabric and airtight layer, ventilation, or daylight and shading through the seasons." style="width: 100%; height: auto; display: block">
+<svg class="hero-diagram" viewBox="0 0 480 430" role="img" aria-label="Section through a two-storey house with a roof terrace. Use the buttons to highlight the fabric and airtight layer, ventilation, or daylight and shading through the seasons.">
 <defs>
 <pattern id="hatch" width="8" height="8" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
 <line x1="0" y1="0" x2="0" y2="8" stroke="#BDB8AD" stroke-width="1.2"></line>
@@ -211,17 +283,27 @@ button:focus-visible,a:focus-visible,input:focus-visible{outline:2px solid #1212
 </g>
 </svg>
 
+<sc-if value="{{showVentSeason}}" hint-placeholder-val="{{ false }}">
+<div class="hero-season fade">
+<span style="font-size: 13px; font-weight: 600; letter-spacing: 0.04em">Season</span>
+<div class="season-toggle" role="group" aria-label="Ventilation season">
+<sc-for list="{{ventSeasons}}" as="s" hint-placeholder-count="2">
+<button class="chip season-choice" type="button" onClick="{{s.pick}}" aria-pressed="{{s.pressed}}">{{s.label}}</button>
+</sc-for>
+</div>
+</div>
+</sc-if>
+
 <sc-if value="{{showSeason}}" hint-placeholder-val="{{ false }}">
-<div class="fade" style="display: flex; flex-wrap: wrap; align-items: center; gap: 10px 14px; padding: 14px 16px; background: #FFFFFF; border: 1px solid #D9D5CC">
+<div class="hero-season fade">
 <label for="season" style="font-size: 13px; font-weight: 600; letter-spacing: 0.04em">Season</label>
 <span aria-hidden="true" style="font-size: 13px; color: #55524C">Summer</span>
 <input id="season" type="range" min="0" max="100" step="1" value="{{season}}" onChange="{{setSeason}}" aria-valuetext="{{seasonLabel}}" style="flex: 1 1 160px; min-width: 120px; height: 44px; accent-color: {{accent}}; cursor: pointer">
 <span aria-hidden="true" style="font-size: 13px; color: #55524C">Winter</span>
-<span style="flex: 1 1 100%; font-size: 13px; font-weight: 600; color: #121212">{{seasonLabel}}</span>
 </div>
 </sc-if>
 
-<figcaption aria-live="polite" style="font-size: 14px; line-height: 1.6; color: #3A3833; max-width: 38em; min-height: 3.2em">{{layerCaption}}</figcaption>
+<figcaption class="hero-caption" aria-live="polite">{{layerCaption}}</figcaption>
 </figure>
 </section>
 
@@ -274,30 +356,40 @@ button:focus-visible,a:focus-visible,input:focus-visible{outline:2px solid #1212
 </div>
 
 <!-- SERVICES -->
-<section id="services" style="max-width: 1200px; margin: 0 auto; padding: clamp(72px, 9vw, 120px) clamp(16px, 4vw, 48px); display: flex; flex-direction: column; gap: 48px">
-<div style="display: flex; flex-direction: column; gap: 16px">
-<p style="margin: 0; font-size: 13px; font-weight: 600; letter-spacing: 0.28em; text-transform: uppercase; color: #55524C">Services</p>
-<h2 style="margin: 0; font-family: 'Abril Fatface', 'Bodoni 72', Didot, Georgia, serif; font-weight: 400; font-size: clamp(36px, 4.4vw, 60px); line-height: 1.05">What I can help with</h2>
-<p style="margin: 0; font-size: 17px; line-height: 1.65; color: #3A3833; max-width: 62em; text-wrap: pretty">Every service rests on the same approach: model the building, simulate the options, then decide. I work closely with architects, engineers and builders throughout, so that what's proposed is buildable, realistic and within budget. Available for a single assessment or as part of the design team from start to finish. Select a service to see what's involved.</p>
-</div>
-
-<div style="display: flex; flex-wrap: wrap; gap: 0; border-top: 1.5px solid #121212">
-<div role="group" aria-label="Services" style="flex: 1 1 300px; display: flex; flex-direction: column; border-right: 1px solid #D9D5CC">
+<section id="services" class="section-frame services-section">
+<header class="services-intro">
+<p class="section-eyebrow">Services</p>
+<h2 class="section-title">What I can help with</h2>
+<p class="services-intro-copy">Model the building, test the options, then decide. Practical, buildable advice within your budget, for a single assessment or support throughout the project with your design and construction team.</p>
+</header>
+<div class="services-layout">
+<div class="services-nav" role="group" aria-label="Services">
 <sc-for list="{{services}}" as="s" hint-placeholder-count="6">
-<button class="svc" type="button" onClick="{{s.pick}}" aria-pressed="{{s.pressed}}" style="font: inherit; text-align: left; display: flex; align-items: baseline; gap: 16px; padding: 20px 20px; min-height: 64px; border: 0; border-bottom: 1px solid #D9D5CC; background: {{s.bg}}; color: {{s.fg}}; cursor: pointer">
-<span style="font-family: 'Abril Fatface', Georgia, serif; font-size: 18px; color: {{s.numColor}}; min-width: 28px">{{s.num}}</span>
-<span style="font-size: 17px; font-weight: 600; line-height: 1.35">{{s.title}}</span>
+<button class="svc" type="button" onClick="{{s.pick}}" aria-pressed="{{s.pressed}}" style="background: {{s.bg}}; color: {{s.fg}}">
+<span class="service-number" style="color: {{s.numColor}}">{{s.num}}</span>
+<span>{{s.title}}</span>
 </button>
 </sc-for>
 </div>
-
-<article aria-live="polite" style="flex: 999 1 440px; min-width: 0; padding: clamp(24px, 4vw, 56px); display: flex; flex-direction: column; gap: 24px; background: #FFFFFF; border-bottom: 1px solid #D9D5CC">
-<p style="margin: 0; font-size: 12px; font-weight: 600; letter-spacing: 0.24em; text-transform: uppercase; color: {{accentText}}">{{sel.cat}}</p>
-<h3 style="margin: 0; font-family: 'Abril Fatface', 'Bodoni 72', Didot, Georgia, serif; font-weight: 400; font-size: clamp(30px, 3.2vw, 44px); line-height: 1.08">{{sel.title}}</h3>
-<p style="margin: 0; font-size: 17px; line-height: 1.7; color: #3A3833; max-width: 36em">{{sel.summary}}</p>
-
-<figure style="margin: 0; display: flex; flex-direction: column; gap: 10px; max-width: 680px">
-<div style="background: #FFFFFF; border: 1px solid #D9D5CC; padding: clamp(12px, 2vw, 20px)">
+<article class="service-panel" aria-live="polite">
+<header class="service-heading">
+<p style="color: {{accentText}}">{{sel.cat}}</p>
+<h3>{{sel.title}}</h3>
+</header>
+<div class="service-details">
+<p class="service-summary">{{sel.summary}}</p>
+<ul class="service-points">
+<sc-for list="{{sel.points}}" as="p" hint-placeholder-count="4">
+<li class="service-point">
+<span aria-hidden="true" style="width: 10px; height: 2px; background: {{accent}}; flex: none; transform: translateY(-4px)"></span>
+<span>{{p}}</span>
+</li>
+</sc-for>
+</ul>
+</div>
+<div class="service-output">
+<figure class="service-figure">
+<div class="service-chart">
 
 <sc-if value="{{show.s0}}" hint-placeholder-val="{{ true }}">
 <svg class="fade" viewBox="0 0 520 300" role="img" aria-label="Example waterfall chart of space heating demand: the existing building at 180 kWh per square metre per year, reduced by wall insulation (55), roof insulation (20), triple glazing (22), airtightness (25) and MVHR (28), to 30 after upgrading, an 83 percent saving" style="width: 100%; height: auto; display: block">
@@ -590,25 +682,17 @@ button:focus-visible,a:focus-visible,input:focus-visible{outline:2px solid #1212
 </div>
 <figcaption style="font-size: 13px; line-height: 1.55; color: #3A3833; display: flex; flex-direction: column; gap: 4px"><sc-if value="{{sel.hasCaption}}" hint-placeholder-val="{{ false }}"><span>{{sel.caption}}</span></sc-if><span style="font-size: 12px; color: #55524C">Typical output, illustrative example</span></figcaption>
 </figure>
-
-<ul style="margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; border-top: 1px solid #D9D5CC">
-<sc-for list="{{sel.points}}" as="p" hint-placeholder-count="4">
-<li style="display: flex; gap: 14px; align-items: baseline; padding: 14px 0; border-bottom: 1px solid #D9D5CC; font-size: 15px; line-height: 1.55">
-<span aria-hidden="true" style="width: 10px; height: 2px; background: {{accent}}; flex: none; transform: translateY(-4px)"></span>
-<span>{{p}}</span>
-</li>
-</sc-for>
-</ul>
 <sc-if value="{{sel.hasTools}}" hint-placeholder-val="{{ true }}">
-<div style="display: flex; flex-wrap: wrap; align-items: center; gap: 8px">
+<div class="service-tools">
 <span style="font-size: 13px; font-weight: 600; color: #55524C; padding-right: 4px">Tools</span>
 <sc-for list="{{sel.tools}}" as="t" hint-placeholder-count="2">
-<span style="display: inline-flex; align-items: center; gap: 8px; font-size: 13px; font-weight: 600; padding: 4px 12px 4px 4px; border: 1px solid #121212; background: #FFFFFF"><img src="{{t.src}}" alt="" style="width: 28px; height: 28px; object-fit: contain; display: block"><span>{{t.name}}</span></span>
+<span style="display: inline-flex; align-items: center; gap: 8px; font-size: 13px; font-weight: 600; padding: 3px 8px 3px 3px; border: 1px solid #121212; background: #FFFFFF"><img src="{{t.src}}" alt="" style="width: 22px; height: 22px; object-fit: contain; display: block"><span>{{t.name}}</span></span>
 </sc-for>
 </div>
 </sc-if>
-<div style="padding-top: 4px">
-<a href="#contact" onClick="{{sel.enquire}}" style="font-size: 15px; font-weight: 600; text-underline-offset: 6px">Enquire about {{sel.short}} →</a>
+</div>
+<div class="service-enquiry">
+<a href="#contact" onClick="{{sel.enquire}}">Enquire about {{sel.short}} →</a>
 </div>
 </article>
 </div>
@@ -616,10 +700,10 @@ button:focus-visible,a:focus-visible,input:focus-visible{outline:2px solid #1212
 
 <!-- SCALE -->
 <section id="scale" style="border-top: 1px solid #D9D5CC">
-<div style="max-width: 1200px; margin: 0 auto; padding: clamp(72px, 9vw, 112px) clamp(16px, 4vw, 48px); display: flex; flex-direction: column; gap: 48px">
+<div class="section-frame" style="display: flex; flex-direction: column; gap: 48px">
 <div style="display: flex; flex-direction: column; gap: 16px; max-width: 680px">
-<p style="margin: 0; font-size: 13px; font-weight: 600; letter-spacing: 0.28em; text-transform: uppercase; color: #55524C">Projects</p>
-<h2 style="margin: 0; font-family: 'Abril Fatface', 'Bodoni 72', Didot, Georgia, serif; font-weight: 400; font-size: clamp(36px, 4.4vw, 60px); line-height: 1.05">From whole sites to single homes</h2>
+<p class="section-eyebrow">Projects</p>
+<h2 class="section-title">From whole sites to single homes</h2>
 </div>
 <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(380px, 100%), 1fr)); gap: 32px">
 <article style="display: flex; flex-direction: column; gap: 18px; padding: 32px; background: #FFFFFF; border: 1px solid #D9D5CC">
@@ -663,11 +747,11 @@ button:focus-visible,a:focus-visible,input:focus-visible{outline:2px solid #1212
 
 <!-- HOW I WORK -->
 <section id="how" style="background: #ECE9E1; border-top: 1px solid #D9D5CC; border-bottom: 1px solid #D9D5CC">
-<div style="max-width: 1200px; margin: 0 auto; padding: clamp(64px, 8vw, 104px) clamp(16px, 4vw, 48px); display: flex; flex-direction: column; gap: 28px">
+<div class="section-frame" style="display: flex; flex-direction: column; gap: 28px">
 <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: end; gap: 16px">
 <div style="display: flex; flex-direction: column; gap: 16px; max-width: 680px">
-<p style="margin: 0; font-size: 13px; font-weight: 600; letter-spacing: 0.28em; text-transform: uppercase; color: #55524C">How I work</p>
-<h2 style="margin: 0; font-family: 'Abril Fatface', 'Bodoni 72', Didot, Georgia, serif; font-weight: 400; font-size: clamp(36px, 4.4vw, 60px); line-height: 1.05">Better decisions from the outset.</h2>
+<p class="section-eyebrow">How I work</p>
+<h2 class="section-title">Better decisions from the outset.</h2>
 </div>
 <div role="group" aria-label="Steps" style="display: flex; align-items: center; gap: 10px">
 <sc-for list="{{hows}}" as="h" hint-placeholder-count="4">
@@ -847,11 +931,11 @@ button:focus-visible,a:focus-visible,input:focus-visible{outline:2px solid #1212
 </section>
 
 <!-- ABOUT -->
-<section id="about" style="max-width: 1200px; margin: 0 auto; padding: clamp(72px, 9vw, 120px) clamp(16px, 4vw, 48px); display: grid; grid-template-columns: repeat(auto-fit, minmax(min(380px, 100%), 1fr)); gap: 64px; align-items: start">
+<section id="about" class="section-frame" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(380px, 100%), 1fr)); gap: 64px; align-items: start">
 <img src="/_blob/2957b14413e681bfcef452399579dde2" alt="Milo Gillot with a rucksack at a limestone climbing crag above the sea" style="aspect-ratio: 4 / 5; width: 100%; max-width: 460px; object-fit: cover; display: block">
 <div style="display: flex; flex-direction: column; gap: 24px">
-<p style="margin: 0; font-size: 13px; font-weight: 600; letter-spacing: 0.28em; text-transform: uppercase; color: #55524C">About</p>
-<h2 style="margin: 0; font-family: 'Abril Fatface', 'Bodoni 72', Didot, Georgia, serif; font-weight: 400; font-size: clamp(36px, 4.4vw, 60px); line-height: 1.05">My background</h2>
+<p class="section-eyebrow">About</p>
+<h2 class="section-title">My background</h2>
 <p style="margin: 0; font-size: 17px; line-height: 1.7; color: #3A3833; max-width: 34em">I studied Civil Engineering at the University of Bristol, graduating with an MEng, and I'm a Certified Passivhaus Designer. My work centres on building energy simulation: using accurate digital models to test how a building will perform before it's built, for new build and retrofit alike.</p>
 <p style="margin: 0; font-size: 17px; line-height: 1.7; color: #3A3833; max-width: 34em">I'm based in Ibiza and work on projects in both the UK and Spain, so I'm used to working to different regulations and climates. Away from work, you'll usually find me climbing.</p>
 <dl style="margin: 8px 0 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(220px, 100%), 1fr)); gap: 0 32px; border-top: 1px solid #121212">
@@ -877,9 +961,9 @@ button:focus-visible,a:focus-visible,input:focus-visible{outline:2px solid #1212
 
 <!-- CONTACT -->
 <section id="contact" style="border-top: 1px solid #121212">
-<div style="max-width: 1200px; margin: 0 auto; padding: clamp(72px, 9vw, 120px) clamp(16px, 4vw, 48px); display: grid; grid-template-columns: repeat(auto-fit, minmax(min(420px, 100%), 1fr)); gap: 56px">
+<div class="section-frame" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(420px, 100%), 1fr)); gap: 56px">
 <div style="display: flex; flex-direction: column; gap: 24px">
-<p style="margin: 0; font-size: 13px; font-weight: 600; letter-spacing: 0.28em; text-transform: uppercase; color: #55524C">Contact</p>
+<p class="section-eyebrow">Contact</p>
 <h2 style="margin: 0; font-family: 'Abril Fatface', 'Bodoni 72', Didot, Georgia, serif; font-weight: 400; font-size: clamp(40px, 5vw, 72px); line-height: 1.02; text-wrap: balance">Have a project in mind?</h2>
 <p style="margin: 0; font-size: 17px; line-height: 1.7; color: #3A3833; max-width: 30em">Tell me a little about the site, the stage you're at and what you need, and I'll get back to you.</p>
 <div style="display: flex; flex-direction: column; gap: 8px; font-size: 16px; padding-top: 8px">
@@ -1019,7 +1103,7 @@ window.__mount=function(C, defaults){ root=document.getElementById("app"); inst=
 var Component = class extends DCLogic {
 constructor(props) {
 super(props);
-this.state = { layer: "fabric", season: 0, svc: 0, needs: {}, sent: false, howStep: 0 };
+this.state = { layer: "fabric", season: 0, ventSeason: 0, svc: 0, needs: {}, sent: false, howStep: 0 };
 }
 renderVals() {
 var self = this;
@@ -1028,7 +1112,8 @@ var accentText = accent === "#C0391B" ? "#A8321A" : accent;
 
 /* ---------- Hero section drawing ---------- */
 var cur = this.state.layer;
-var season = this.state.season;
+// Ventilation uses two modes; daylight keeps its own continuous season setting.
+var season = cur === "vent" ? this.state.ventSeason : this.state.season;
 var t = 1 - season / 100; /* slider: summer on the left (0), winter on the right (100) */
 var winter = t < 0.35, summer = t > 0.65, warm = t >= 0.5;
 
@@ -1051,17 +1136,17 @@ pick: function () { self.setState({ layer: l.id }); }
 
 var layerCaption;
 if (cur === "fabric") {
-layerCaption = "Insulation wraps the walls, roof and floor without a break, with a continuous airtight layer (red) on its inner face.";
+layerCaption = "Continuous insulation wraps the walls, roof and floor, with an airtight layer inside to limit heat loss.";
 } else if (cur === "vent") {
 layerCaption = warm
-? "Summer: fresh air (blue) comes in through openable windows on opposite sides for cross-ventilation, and night-time purge ventilation flushes out the day's heat. The MVHR can switch to summer bypass."
-: "Winter: windows stay closed and the MVHR draws fresh air in through a short duct in the external wall and supplies it, filtered, to the rooms (blue), recovering most of the heat from the stale air it extracts (red).";
+? "Summer cross-ventilation brings fresh air and night cooling; the MVHR can switch to summer bypass."
+: "Winter ventilation supplies filtered fresh air and recovers heat from extracted air, with windows closed.";
 } else {
 layerCaption = winter
-? "Winter: the low sun passes under the overhangs, bringing daylight and free heat deep into the rooms."
+? "Winter sun passes beneath the overhangs, bringing daylight and free warmth deep into the rooms."
 : summer
-? "Summer: the high sun is cut off by the overhangs and terrace, so the glazing stays in shade and the rooms stay cool."
-: "Spring and autumn: as the sun climbs, the overhangs begin to shade the glazing.";
+? "Summer sun is blocked by the overhangs and terrace, shading the glazing and helping rooms stay cool."
+: "Spring and autumn sun brings daylight indoors, with more shading as the sun climbs higher.";
 }
 
 var op = {
@@ -1153,19 +1238,18 @@ L2: ray(400, 344, 238, 442, 356, 84, 474)
 };
 var Ls = Math.min(160 / c, (188 - 22) / s);
 var sun = { x: f(300 + Ls * c), y: f(188 - Ls * s) };
-var MONTHS = ["December", "January", "February", "March", "April", "May", "June"];
-var seasonLabel = MONTHS[Math.round(t * 6)] + " · midday sun at " + Math.round(alt) + "° above the horizon in Ibiza";
+var seasonLabel = summer ? "Summer" : winter ? "Winter" : "Spring and autumn";
 
 /* ---------- Services ---------- */
 var SERVICES = [
 { title: "Retrofit & new build", short: "retrofit or new build", cat: "Energy simulation", need: "Retrofit / new build",
-summary: "Whether it's an existing building or a new design, I build a simulation model and test the options side by side. The same model quantifies the energy and comfort benefit of each measure, so it can be weighed against cost to find the best-value upgrades. With my experience, I make sure the upgrades proposed are compatible with the existing building fabric, with moisture and mould risks properly understood.",
-points: ["Simulation models of existing buildings and new designs", "Insulation, airtightness, window and ventilation options tested side by side", "Cost analysis to identify the best-value upgrades", "Moisture and condensation risk assessed before work starts", "Sensible sequencing of works, and EnerPHit where certification is the goal"],
+summary: "I model existing buildings and new designs to compare energy, comfort and cost. Upgrades are assessed for value, compatibility with the building fabric, and moisture and mould risks.",
+points: ["Energy models for existing buildings and new designs", "Compare insulation, airtightness, glazing and ventilation", "Cost analysis to identify the best-value upgrades", "Moisture and condensation risk assessed before work", "Sequenced works, with EnerPHit where certification is the goal"],
 tools: ["IES VE", "PHPP"] },
 { title: "Passivhaus design & PHPP", short: "Passivhaus design", cat: "Passivhaus", need: "Passivhaus / PHPP",
-summary: "As a Certified Passivhaus Designer, I build and maintain the PHPP model from early design through to certification, so the scheme is tested against the standard at every stage rather than only at the end. The model shows exactly where energy flows in and out of the building, so the easy wins are obvious. Every building is different, and so are its climate and location, so the answer comes from a bespoke assessment of your building, not a rule of thumb.",
-caption: "The energy balance shows where heat is lost and gained, so effort goes where it makes the biggest difference. Here the windows and walls dominate the losses.",
-points: ["An energy balance showing where heat is lost and gained, and where the easy wins are", "Early PHPP modelling to guide form, orientation and glazing", "Fabric, window and thermal bridge inputs kept up to date as the design develops", "Airtightness strategy, coordinated with the design team", "Preparation of the certification package"],
+summary: "As a Certified Passivhaus Designer, I test your scheme from early design to certification using a PHPP model tailored to your building, climate and location.",
+caption: "The energy balance reveals the biggest opportunities; here, windows and walls account for most heat loss.",
+points: ["Energy balance to identify heat losses, gains and priorities", "Early PHPP modelling of form, orientation and glazing", "Fabric, window and thermal bridge inputs updated as the design develops", "Airtightness strategy coordinated with the design team", "Certification package preparation"],
 tools: ["PHPP"] },
 { title: "Overheating: TM59 & Part O", short: "an overheating assessment", cat: "Compliance · Energy simulation", need: "TM59 / Part O",
 summary: "Overheating assessments for new homes using the CIBSE TM59 dynamic method, and Approved Document O compliance under the Building Regulations in England.",
@@ -1176,8 +1260,8 @@ summary: "Daylight studies that show how much natural light reaches each room. W
 points: ["Room-by-room daylight autonomy analysis", "Glazing size optimised per façade for daylight and overheating", "Shading (overhangs, fins) tested where sun is a risk", "Balancing daylight against heat loss"],
 tools: ["Honeybee", "Ladybug", "Grasshopper"] },
 { title: "Rhino, Grasshopper & custom tools", short: "Rhino, Grasshopper or custom tools", cat: "Computational design", need: "Rhino / custom tools",
-summary: "Expert Rhino modelling and Grasshopper scripting, plus programming to build custom tools. Parametric workflows link geometry directly to simulation, so thousands of design combinations can be tested across many parameters at once, with the optimal solution picked out automatically.",
-points: ["Multi-parameter optimisation: thousands of combinations tested, the best performer selected", "Early-stage massing studies for large multi-residential schemes", "Custom tools and scripts built around your team's workflow", "Geometry prepared for energy and daylight simulation"],
+summary: "I connect Rhino and Grasshopper to simulation, testing thousands of designs to find the best performer. I also build custom tools for your team's workflow.",
+points: ["Multi-parameter optimisation to find the best of thousands of options", "Early-stage massing studies for large multi-residential schemes", "Custom tools and scripts built around your team's workflow", "Geometry prepared for energy and daylight simulation"],
 tools: ["Rhino", "Grasshopper", "Ladybug", "Honeybee"] },
 { title: "MVHR design", short: "MVHR design", cat: "Building services", need: "MVHR design",
 summary: "Mechanical ventilation with heat recovery, designed around the building from the outset rather than fitted in afterwards.",
@@ -1202,7 +1286,17 @@ pressed: on ? "true" : "false",
 bg: on ? "#121212" : "transparent",
 fg: on ? "#F5F3EE" : "#121212",
 numColor: on ? "#E8A595" : accentText,
-pick: function () { self.setState({ svc: i }); }
+pick: function () {
+self.setState({ svc: i });
+requestAnimationFrame(function () {
+var panel = document.querySelector(".services-layout");
+if (!panel || window.innerWidth < 1024) return;
+var rect = panel.getBoundingClientRect(), inset = 24;
+if (rect.height <= window.innerHeight - inset * 2 && (rect.top < inset || rect.bottom > window.innerHeight - inset)) {
+window.scrollTo({ top: window.scrollY + rect.top - inset, behavior: "instant" });
+}
+});
+}
 };
 });
 var s0 = SERVICES[si];
@@ -1479,7 +1573,15 @@ nv: nv,
 sunNote: sunNote,
 season: season,
 seasonLabel: seasonLabel,
-showSeason: cur === "vent" || cur === "light",
+showSeason: cur === "light",
+showVentSeason: cur === "vent",
+ventSeasons: [{ label: "Summer", value: 0 }, { label: "Winter", value: 100 }].map(function (s) {
+return {
+label: s.label,
+pressed: self.state.ventSeason === s.value ? "true" : "false",
+pick: function () { self.setState({ ventSeason: s.value }); }
+};
+}),
 how: { s0: self.state.howStep === 0, s1: self.state.howStep === 1, s2: self.state.howStep === 2, s3: self.state.howStep === 3 },
 hows: [0, 1, 2, 3].map(function (i) {
 var on = self.state.howStep === i;
