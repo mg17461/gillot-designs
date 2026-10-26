@@ -359,7 +359,7 @@ button:focus-visible,a:focus-visible,input:focus-visible{outline:2px solid #1212
 <section id="services" class="section-frame services-section">
 <header class="services-intro">
 <p class="section-eyebrow">Services</p>
-<h2 class="section-title">What I can help with</h2>
+<h2 class="section-title">Consultancy Services</h2>
 <p class="services-intro-copy">Model the building, test the options, then decide. Practical, buildable advice within your budget, for a single assessment or support throughout the project with your design and construction team.</p>
 </header>
 <div class="services-layout">
@@ -509,7 +509,7 @@ button:focus-visible,a:focus-visible,input:focus-visible{outline:2px solid #1212
 </sc-if>
 
 <sc-if value="{{show.s3}}" hint-placeholder-val="{{ false }}">
-<svg class="fade" viewBox="0 0 520 340" role="img" aria-label="Example isometric view of a residential block. The top floor plate is a gridded analysis mesh coloured by daylight autonomy, and the window size is tuned for each façade: larger windows to the north for daylight, smaller shaded windows to the south and limited glazing east and west to control overheating." style="width: 100%; height: auto; display: block">
+<svg class="fade" viewBox="0 0 520 340" role="img" aria-label="Isometric daylight study with south-facing window-head overhangs and west-facing vertical fins. South and west glazing has a g-value of 0.35. North and east have slightly larger, unshaded windows with a g-value of 0.50." style="width: 100%; height: auto; display: block">
 <g font-family="Montserrat, Arial, sans-serif" fill="#121212">
 <text x="20" y="18" font-size="13" font-weight="600">Daylight autonomy, glazing tuned per façade</text>
 <text x="20" y="37" font-size="8" font-weight="600" fill="#3A3833">DA %</text>
@@ -519,7 +519,7 @@ button:focus-visible,a:focus-visible,input:focus-visible{outline:2px solid #1212
 <path d="{{dl.faceR}}" fill="#E2DED5" stroke="#121212" stroke-width="1"></path>
 <path d="{{dl.floors}}" fill="none" stroke="#9C978C" stroke-width="0.8"></path>
 <path d="{{dl.wins}}" fill="#BFDDF2" stroke="#3A3833" stroke-width="0.6"></path>
-<path d="{{dl.shades}}" fill="none" stroke="#121212" stroke-width="1.8" stroke-linecap="round"></path>
+<path data-facade="south" data-shading="overhang" d="{{dl.southShades}}" fill="#BDB8AD" stroke="#3A3833" stroke-width="0.7" stroke-linejoin="round"></path>
 <path d="{{dl.plate}}" fill="#FFFFFF" stroke="#121212" stroke-width="1"></path>
 <path d="{{dl.d0}}" fill="#3B3F9A"></path>
 <path d="{{dl.d1}}" fill="#7B2D8E"></path>
@@ -533,19 +533,22 @@ button:focus-visible,a:focus-visible,input:focus-visible{outline:2px solid #1212
 <path d="{{dl.outer}}" fill="none" stroke="#121212" stroke-width="2" stroke-linejoin="round"></path>
 <path d="{{dl.glaz}}" fill="none" stroke="#5BAADF" stroke-width="3.5" stroke-linecap="butt"></path>
 <path d="{{dl.ghost}}" fill="none" stroke="#121212" stroke-width="1" opacity="0.4"></path>
+<path d="{{dl.topWindows}}" fill="#BFDDF2" fill-opacity="0.65" stroke="#3A3833" stroke-width="0.6"></path>
+<path data-facade="south" data-shading="overhang" d="{{dl.topSouthShades}}" fill="#BDB8AD" stroke="#3A3833" stroke-width="0.7" stroke-linejoin="round"></path>
+<path data-facade="west" data-shading="vertical-fin" d="{{dl.westFins}}" fill="#BDB8AD" stroke="#3A3833" stroke-width="0.7" stroke-linejoin="round"></path>
 <g stroke="#121212" stroke-width="0.8" fill="none">
 <path d="M440 124 L428 152"></path><path d="M138 82 L207 88"></path><path d="M152 264 L207 187"></path><path d="M450 300 L449 255"></path>
 </g>
 <g fill="#121212"><circle cx="428" cy="152" r="2"></circle><circle cx="207" cy="88" r="2"></circle><circle cx="207" cy="187" r="2"></circle><circle cx="449" cy="255" r="2"></circle></g>
 <g font-size="8.5">
-<rect x="404" y="94" width="112" height="30" fill="#FFFFFF" stroke="#121212" stroke-width="0.8"></rect>
-<text x="410" y="106" font-weight="600">NORTH · 45% glazing</text><text x="410" y="118" fill="#3A3833">more daylight, low sun</text>
+<rect x="390" y="94" width="126" height="30" fill="#FFFFFF" stroke="#121212" stroke-width="0.8"></rect>
+<text x="396" y="106" font-weight="600">NORTH · g-value 0.50</text><text x="396" y="118" fill="#3A3833">Larger windows, no shade</text>
 <rect x="16" y="68" width="122" height="30" fill="#FFFFFF" stroke="#121212" stroke-width="0.8"></rect>
-<text x="22" y="80" font-weight="600">WEST · 30% glazing</text><text x="22" y="92" fill="#3A3833">limits low evening sun</text>
+<text x="22" y="80" font-weight="600">WEST · g-value 0.35</text><text x="22" y="92" fill="#3A3833">Vertical fins</text>
 <rect x="16" y="250" width="136" height="30" fill="#FFFFFF" stroke="#121212" stroke-width="0.8"></rect>
-<text x="22" y="262" font-weight="600">SOUTH · 25% glazing</text><text x="22" y="274" fill="#3A3833">overhangs cut summer sun</text>
+<text x="22" y="262" font-weight="600">SOUTH · g-value 0.35</text><text x="22" y="274" fill="#3A3833">Window-head overhangs</text>
 <rect x="396" y="300" width="120" height="30" fill="#FFFFFF" stroke="#121212" stroke-width="0.8"></rect>
-<text x="402" y="312" font-weight="600">EAST · 30% glazing</text><text x="402" y="324" fill="#3A3833">fins for morning sun</text>
+<text x="402" y="312" font-weight="600">EAST · g-value 0.50</text><text x="402" y="324" fill="#3A3833">Larger windows, no shade</text>
 </g>
 </g>
 </svg>
@@ -680,7 +683,7 @@ button:focus-visible,a:focus-visible,input:focus-visible{outline:2px solid #1212
 </sc-if>
 
 </div>
-<figcaption style="font-size: 13px; line-height: 1.55; color: #3A3833; display: flex; flex-direction: column; gap: 4px"><sc-if value="{{sel.hasCaption}}" hint-placeholder-val="{{ false }}"><span>{{sel.caption}}</span></sc-if><span style="font-size: 12px; color: #55524C">Typical output, illustrative example</span></figcaption>
+<sc-if value="{{sel.hasCaption}}" hint-placeholder-val="{{ false }}"><figcaption style="font-size: 13px; line-height: 1.55; color: #3A3833">{{sel.caption}}</figcaption></sc-if>
 </figure>
 <sc-if value="{{sel.hasTools}}" hint-placeholder-val="{{ true }}">
 <div class="service-tools">
@@ -759,7 +762,7 @@ button:focus-visible,a:focus-visible,input:focus-visible{outline:2px solid #1212
 </sc-for>
 </div>
 </div>
-<div id="howScroll" class="howScroll" tabindex="0" aria-label="How I work, four steps. Scroll inside this area to move between them." onScroll="{{howScroll}}" style="height: 460px; overflow-y: auto; overflow-anchor: none; scroll-snap-type: y proximity; -webkit-overflow-scrolling: touch; border-top: 1.5px solid #121212; border-bottom: 1px solid #D9D5CC">
+<div id="howScroll" class="howScroll" tabindex="0" aria-label="How I work, four steps. Scroll inside this area to move between them." onScroll="{{howScroll}}" onWheel="{{howWheel}}" style="height: 460px; overflow-y: auto; overscroll-behavior-y: auto; overflow-anchor: none; scroll-snap-type: y proximity; -webkit-overflow-scrolling: touch; border-top: 1.5px solid #121212; border-bottom: 1px solid #D9D5CC">
 <div style="position: sticky; top: 0; height: 100%; margin-bottom: -460px; box-sizing: border-box; padding: 24px 0; overflow: hidden; contain: layout paint; z-index: 1" class="howStage">
 <sc-if value="{{how.s0}}" hint-placeholder-val="{{ true }}">
 <div class="fade" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(360px, 100%), 1fr)); gap: 24px; align-items: center; height: 100%">
@@ -926,7 +929,7 @@ button:focus-visible,a:focus-visible,input:focus-visible{outline:2px solid #1212
 <div style="height: 100%; scroll-snap-align: start; scroll-snap-stop: normal"></div>
 <div style="height: 100%; scroll-snap-align: start; scroll-snap-stop: normal"></div>
 </div>
-<p style="margin: 0; font-size: 13px; color: #55524C">Scroll within this panel to step through, or pick a number.</p>
+<p style="margin: 0; font-size: 13px; color: #55524C">Scroll through the steps, then keep scrolling to continue down the page. You can also pick a number.</p>
 </div>
 </section>
 
@@ -1251,17 +1254,17 @@ summary: "As a Certified Passivhaus Designer, I test your scheme from early desi
 caption: "The energy balance reveals the biggest opportunities; here, windows and walls account for most heat loss.",
 points: ["Energy balance to identify heat losses, gains and priorities", "Early PHPP modelling of form, orientation and glazing", "Fabric, window and thermal bridge inputs updated as the design develops", "Airtightness strategy coordinated with the design team", "Certification package preparation"],
 tools: ["PHPP"] },
-{ title: "Overheating: TM59 & Part O", short: "an overheating assessment", cat: "Compliance · Energy simulation", need: "TM59 / Part O",
-summary: "Overheating assessments for new homes using the CIBSE TM59 dynamic method, and Approved Document O compliance under the Building Regulations in England.",
-points: ["Part O simplified method or dynamic modelling to TM59", "Clear advice on glazing, shading and ventilation where a design fails", "Reports ready for Building Control"],
+{ title: "Overheating: TM59, TM52 & Part O", short: "an overheating assessment", cat: "Compliance · Energy simulation", need: "TM59 / TM52 / Part O",
+summary: "Dynamic overheating assessments to CIBSE TM59 and TM52, alongside Part O compliance assessments for new homes in England.",
+points: ["Dynamic modelling to TM59 and TM52", "Clear advice on glazing, shading and ventilation where a design fails", "Reports ready for Building Control"],
 tools: ["IES VE"] },
 { title: "Internal daylight modelling", short: "daylight modelling", cat: "Simulation", need: "Daylight",
 summary: "Daylight studies that show how much natural light reaches each room. Window sizes are tuned façade by façade, balancing daylight against overheating, so each orientation gets the glazing it needs and no more.",
 points: ["Room-by-room daylight autonomy analysis", "Glazing size optimised per façade for daylight and overheating", "Shading (overhangs, fins) tested where sun is a risk", "Balancing daylight against heat loss"],
 tools: ["Honeybee", "Ladybug", "Grasshopper"] },
 { title: "Rhino, Grasshopper & custom tools", short: "Rhino, Grasshopper or custom tools", cat: "Computational design", need: "Rhino / custom tools",
-summary: "I connect Rhino and Grasshopper to simulation, testing thousands of designs to find the best performer. I also build custom tools for your team's workflow.",
-points: ["Multi-parameter optimisation to find the best of thousands of options", "Early-stage massing studies for large multi-residential schemes", "Custom tools and scripts built around your team's workflow", "Geometry prepared for energy and daylight simulation"],
+summary: "I connect Rhino and Grasshopper to simulation to test thousands of designs, and build custom plugins and API connections for a range of tools.",
+points: ["Multi-parameter optimisation to find the best of thousands of options", "Early-stage massing studies for large multi-residential schemes", "Custom plugins, scripts and API connections tailored to your workflow", "Geometry prepared for energy and daylight simulation"],
 tools: ["Rhino", "Grasshopper", "Ladybug", "Honeybee"] },
 { title: "MVHR design", short: "MVHR design", cat: "Building services", need: "MVHR design",
 summary: "Mechanical ventilation with heat recovery, designed around the building from the outset rather than fitted in afterwards.",
@@ -1380,14 +1383,14 @@ var s = 16, cx = 0.866 * s, cy = 0.5 * s, ox = 262, oy = 56;
 function p(x, y, z) { return [ox + (x - y) * cx, oy + (x + y) * cy - (z || 0) * s]; }
 var W = 18, D = 9, c0 = 3.8, c1 = 5.2, H = 3.3;
 var bins = ["", "", "", "", "", ""], corr = "", grid = "", glaz = "";
-/* glazing tuned per facade: wide to the north, narrow to the south, medium on the gables */
-var NW = [1.4, 3.6, 6.4, 8.6, 11.2, 12.9, 15, 17], wN = 1.6, kN = 1.3;
+/* Larger unshaded north/east windows; south overhangs and west fins. */
+var NW = [1.4, 3.6, 6.4, 8.6, 11.2, 12.9, 15, 17], wN = 1.8, kN = 1.3;
 var SW = [1.2, 3, 5.5, 7.5, 10.5, 12, 15, 16.8], wS = 0.9, kS = 0.75;
-var GW = [1.8, 7.2], wG = 1.0, kG = 0.9;
+var GW = [1.8, 7.2], wW = 1.0, wE = 1.3, kG = 0.9;
 var NR = [[0, 5], [5, 10], [10, 14], [14, 18]], SR = [[0, 4], [4, 9], [9, 13.5], [13.5, 18]];
 NW.forEach(function (w) { glaz += polyOf([p(w - wN / 2, 0), p(w + wN / 2, 0)]); });
 SW.forEach(function (w) { glaz += polyOf([p(w - wS / 2, D), p(w + wS / 2, D)]); });
-GW.forEach(function (w) { glaz += polyOf([p(0, w - wG / 2), p(0, w + wG / 2)]) + polyOf([p(W, w - wG / 2), p(W, w + wG / 2)]); });
+GW.forEach(function (w) { glaz += polyOf([p(0, w - wW / 2), p(0, w + wW / 2)]) + polyOf([p(W, w - wE / 2), p(W, w + wE / 2)]); });
 function roomOf(xc, rooms) { for (var r = 0; r < rooms.length; r++) if (xc >= rooms[r][0] && xc < rooms[r][1]) return rooms[r]; return rooms[0]; }
 for (var i = 0; i < 36; i++) {
 for (var j = 0; j < 18; j++) {
@@ -1410,24 +1413,41 @@ var b = da < 10 ? 0 : da < 30 ? 1 : da < 50 ? 2 : da < 70 ? 3 : da < 90 ? 4 : 5;
 bins[b] += cell;
 }
 }
-var floors = "", wins = "", shades = "";
+var floors = "", wins = "", southShades = "";
 [-0.25, -1.3, -2.35].forEach(function (z) { floors += polyOf([p(0, D, z), p(W, D, z), p(W, 0, z)]); });
 for (var k = 0; k < 3; k++) {
 var zt = -0.6 - 1.05 * k, zb = zt - 0.4;
 for (var x = 0.7; x < W - 0.8; x += 1.5) {
 wins += quadOf([p(x, D, zt), p(x + 0.7, D, zt), p(x + 0.7, D, zb), p(x, D, zb)]);
-shades += polyOf([p(x - 0.15, D + 0.45, zt + 0.05), p(x + 0.85, D + 0.45, zt + 0.05)]);
+southShades += quadOf([p(x - 0.1, D, zt + 0.05), p(x + 0.8, D, zt + 0.05), p(x + 0.8, D + 0.45, zt + 0.05), p(x - 0.1, D + 0.45, zt + 0.05)]);
 }
-var zt2 = -0.55 - 1.05 * k, zb2 = zt2 - 0.5;
+var zt2 = -0.5 - 1.05 * k, zb2 = zt2 - 0.58;
 for (var y = 0.7; y < D - 0.8; y += 1.5) {
-wins += quadOf([p(W, y, zt2), p(W, y + 0.8, zt2), p(W, y + 0.8, zb2), p(W, y, zb2)]);
-shades += polyOf([p(W + 0.35, y - 0.05, zt2), p(W + 0.35, y - 0.05, zb2)]) + polyOf([p(W + 0.35, y + 0.85, zt2), p(W + 0.35, y + 0.85, zb2)]);
+wins += quadOf([p(W, y, zt2), p(W, y + 1.0, zt2), p(W, y + 1.0, zb2), p(W, y, zb2)]);
+
 }
 }
 var parts = "";
 [5, 10, 14].forEach(function (x) { parts += polyOf([p(x, 0), p(x, c0)]); });
 [4, 9, 13.5].forEach(function (x) { parts += polyOf([p(x, c1), p(x, D)]); });
 parts += polyOf([p(0, c0), p(W, c0)]) + polyOf([p(0, c1), p(W, c1)]);
+// Shading at the exposed top-floor windows remains visible in the cutaway.
+var topWindows = "", topSouthShades = "", westFins = "";
+NW.forEach(function (w) {
+topWindows += quadOf([p(w - wN / 2, 0, 0.1), p(w + wN / 2, 0, 0.1), p(w + wN / 2, 0, 0.85), p(w - wN / 2, 0, 0.85)]);
+});
+SW.forEach(function (w) {
+var x0 = w - wS / 2, x1 = w + wS / 2;
+topWindows += quadOf([p(x0, D, 0.1), p(x1, D, 0.1), p(x1, D, 0.8), p(x0, D, 0.8)]);
+topSouthShades += quadOf([p(x0 - 0.1, D, 0.85), p(x1 + 0.1, D, 0.85), p(x1 + 0.1, D + 0.45, 0.85), p(x0 - 0.1, D + 0.45, 0.85)]);
+});
+GW.forEach(function (w) {
+topWindows += quadOf([p(0, w - wW / 2, 0.1), p(0, w + wW / 2, 0.1), p(0, w + wW / 2, 0.8), p(0, w - wW / 2, 0.8)]);
+topWindows += quadOf([p(W, w - wE / 2, 0.1), p(W, w + wE / 2, 0.1), p(W, w + wE / 2, 0.85), p(W, w - wE / 2, 0.85)]);
+[w - wW / 2 - 0.05, w + wW / 2 + 0.05].forEach(function (y) {
+westFins += quadOf([p(0, y, 0.05), p(-0.5, y, 0.05), p(-0.5, y, 0.95), p(0, y, 0.95)]);
+});
+});
 var gz = 0.9;
 var ghost = polyOf([p(0, 0, gz), p(W, 0, gz), p(W, D, gz), p(0, D, gz), p(0, 0, gz)]);
 [[0, 0], [W, 0], [W, D], [0, D]].forEach(function (c) { ghost += polyOf([p(c[0], c[1], 0), p(c[0], c[1], gz)]); });
@@ -1437,7 +1457,7 @@ plate: quadOf([p(0, 0), p(W, 0), p(W, D), p(0, D)]),
 outer: quadOf([p(0, 0), p(W, 0), p(W, D), p(0, D)]),
 faceF: quadOf([p(0, D, 0), p(W, D, 0), p(W, D, -H), p(0, D, -H)]),
 faceR: quadOf([p(W, 0, 0), p(W, D, 0), p(W, D, -H), p(W, 0, -H)]),
-floors: floors, wins: wins, shades: shades, parts: parts, ghost: ghost, grid: grid, glaz: glaz
+floors: floors, wins: wins, southShades: southShades, topWindows: topWindows, topSouthShades: topSouthShades, westFins: westFins, parts: parts, ghost: ghost, grid: grid, glaz: glaz
 };
 })();
 
@@ -1546,7 +1566,7 @@ l: { bed1: at(7.9, 3.6, 3), bath: at(10.7, 3.6, 3), util: at(2.0, 7.3, 0), liv: 
 })();
 
 /* ---------- Contact ---------- */
-var NEEDS = ["Retrofit / new build", "Passivhaus / PHPP", "TM59 / Part O", "Daylight", "Rhino / custom tools", "MVHR design", "Energy simulation"];
+var NEEDS = ["Retrofit / new build", "Passivhaus / PHPP", "TM59 / TM52 / Part O", "Daylight", "Rhino / custom tools", "MVHR design", "Energy simulation"];
 var chosen = this.state.needs;
 var needs = NEEDS.map(function (label) {
 var on = !!chosen[label];
@@ -1591,6 +1611,18 @@ bg: on ? "#121212" : "#FFFFFF", fg: on ? "#F5F3EE" : "#121212", border: on ? "#1
 go: function () { var el = document.getElementById("howScroll"); if (el) el.scrollTo({ top: i * el.clientHeight, behavior: "smooth" }); self.setState({ howStep: i }); }
 };
 }),
+howWheel: function (e) {
+var el = e.currentTarget;
+if (!e.deltaY || Math.abs(e.deltaX) > Math.abs(e.deltaY)) return;
+var delta = e.deltaY * (e.deltaMode === 1 ? 16 : e.deltaMode === 2 ? el.clientHeight : 1);
+var atStart = el.scrollTop <= 1;
+var atEnd = el.scrollTop >= el.scrollHeight - el.clientHeight - 1;
+// Explicitly release a wheel/trackpad gesture at either end of the inner panel.
+if ((delta > 0 && atEnd) || (delta < 0 && atStart)) {
+e.preventDefault();
+window.scrollBy({ top: delta, left: 0, behavior: "instant" });
+}
+},
 howScroll: function (e) {
 var el = e.currentTarget, h = Math.max(1, el.clientHeight), i = Math.floor((el.scrollTop + h * 0.45) / h);
 i = Math.max(0, Math.min(3, i));
