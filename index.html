@@ -129,6 +129,109 @@ button:focus-visible,a:focus-visible,input:focus-visible{outline:2px solid #1212
 @media (max-width: 860px){#howScroll{height:820px !important}.howStage{margin-bottom:-820px !important}}
 #howScroll::-webkit-scrollbar{width:6px}#howScroll::-webkit-scrollbar-thumb{background:#BDB8AD;border-radius:3px}
 @media (prefers-reduced-motion: reduce){.rise,.fade,.flow,.breeze,.breeze2,.sway,.sway2,.curl,.drift,.streak,.grow,.bounce,.pop,.drop{animation:none}.draw{animation:none;stroke-dashoffset:0}.layer,.svc{transition:none}#howScroll{scroll-snap-type:none !important}}
+
+/* Phone presentation only. Laptop and tablet layouts retain their original rules. */
+.phone-menu,.phone-service-picker,.phone-how-hint,.phone-graphic-open{display:none}
+@media (max-width:640px), (max-width:960px) and (max-height:500px) and (pointer:coarse){
+ html{-webkit-text-size-adjust:100%;scroll-padding-top:16px}
+ :root{--page-width:560px;--page-gutter:20px;--section-space:56px;--section-title-size:clamp(32px,8.5vw,38px)}
+ .section-eyebrow{font-size:11px;letter-spacing:.24em}
+ .section-title{line-height:1.12;text-wrap:balance}
+ nav[aria-label="Main"]{padding:14px 20px !important;max-width:560px !important;flex-wrap:nowrap !important;gap:16px !important;position:relative}
+ nav[aria-label="Main"] .logo{height:44px !important}
+ .desktop-nav{display:none !important}
+ .phone-menu{display:block}
+ .phone-menu summary{min-height:44px;box-sizing:border-box;display:flex;align-items:center;justify-content:center;gap:10px;padding:10px 14px;border:1px solid #9C978C;cursor:pointer;font-size:14px;font-weight:600;list-style:none}
+ .phone-menu summary::-webkit-details-marker{display:none}
+ .phone-menu summary::after{content:'+';font-size:21px;font-weight:400;line-height:1}
+ .phone-menu[open] summary::after{content:'−'}
+ .phone-menu-links{position:absolute;top:calc(100% - 1px);left:20px;right:20px;z-index:20;padding:12px 18px;background:#F5F3EE;border:1px solid #D9D5CC;box-shadow:0 10px 24px #12121214;display:flex;flex-direction:column}
+ .phone-menu-links a{display:flex;align-items:center;min-height:48px;font-size:16px;border-bottom:1px solid #D9D5CC}
+ .phone-menu-links a:last-child{border-bottom:0;font-weight:600}
+ .hero{display:flex !important;flex-direction:column;align-items:stretch !important;gap:24px !important;max-width:560px !important;padding:32px 20px 48px}
+ .hero>div:first-child,.hero .d2{display:contents !important}
+ .hero h1{order:1;font-size:clamp(32px,11.5vw,64px) !important;line-height:1.04 !important}
+ .hero .d2 p:first-child{order:2}
+ .hero .d2 p:last-child{order:5;padding-top:4px}
+ .hero .d2 p{font-size:16px !important;line-height:1.65 !important}
+ .hero .d3{order:3;display:grid !important;grid-template-columns:1fr 1fr;gap:10px !important;padding-top:0 !important}
+ .hero .d3 a{justify-content:center;font-size:13px !important;letter-spacing:0 !important;padding:15px 10px !important}
+ .hero-visual{order:4;gap:14px;padding-top:8px}
+ .hero-layers{display:grid;grid-template-columns:1fr 1fr 1fr;gap:6px}
+ .hero-layers .chip{font-size:11px;line-height:1.4;letter-spacing:0;padding:10px 5px;min-height:52px !important}
+ .hero-caption{font-size:14px;line-height:1.6}
+ .hero-season{gap:8px;justify-content:space-between}
+ .hero-season:has(#season){display:grid;grid-template-columns:auto 1fr auto;gap:0 8px}
+ .hero-season label[for="season"]{grid-column:1/-1}
+ .hero-season #season{min-width:0 !important;width:100%;box-sizing:border-box;margin:0}
+ .credentials-inner{padding:28px 20px !important;max-width:560px !important;gap:28px !important}
+ .credentials-inner>div{width:100%;margin-left:0 !important}
+ ul[aria-label="Software"]{display:grid !important;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px 8px !important}
+ ul[aria-label="Software"] li>span:last-child{font-size:10px !important;letter-spacing:.08em !important}
+ ul[aria-label="Accreditations"]{display:grid !important;grid-template-columns:1fr;gap:20px !important;justify-content:start !important}
+ .services-section{gap:28px}
+ .services-intro-copy{font-size:16px;line-height:1.65}
+ .services-layout{display:block;border-top:0}
+ .services-nav{display:none}
+ .phone-service-picker{display:flex;flex-direction:column;gap:8px;position:sticky;top:0;z-index:5;padding:12px 0;background:#F5F3EE;border-top:1.5px solid #121212;border-bottom:1px solid #D9D5CC}
+ .phone-service-picker label{font-size:11px;font-weight:600;letter-spacing:.12em;text-transform:uppercase}
+ .phone-service-picker select{font:inherit;font-size:16px;font-weight:500;line-height:1.4;width:100%;min-height:50px;box-sizing:border-box;padding:12px 32px 12px 12px;border:1px solid #121212;border-radius:0;background:#FFFFFF;color:#121212}
+ .service-panel{display:flex;flex-direction:column;gap:24px;min-height:0;padding:24px 0 0;background:transparent;border:0}
+ .service-heading{order:1;gap:8px}
+ .service-heading h3{font-size:30px;line-height:1.15;text-wrap:balance}
+ .service-output{order:2;gap:12px}
+ .service-details{order:3;gap:20px}
+ .service-enquiry{order:4;padding-top:0}
+ .service-chart{padding:0;border:0;background:transparent}
+ .phone-graphic-open{display:flex;align-items:center;justify-content:center;min-height:44px;padding:8px 12px;border:1px solid #D9D5CC;background:transparent;color:#121212;font:inherit;font-size:13px;font-weight:500;cursor:pointer}
+ .phone-graphic-dialog[open]{display:flex;flex-direction:column;width:calc(100% - 24px);max-width:900px;height:calc(100vh - 32px);height:calc(100dvh - 32px);max-height:900px;margin:auto;padding:0;box-sizing:border-box;border:1px solid #121212;background:#FFFFFF;color:#121212;font:inherit;overflow:hidden}
+ .phone-graphic-dialog::backdrop{background:#12121299}
+ .phone-graphic-header{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:12px 16px}
+ .phone-graphic-header h3{margin:0;font-size:16px;line-height:1.4;font-weight:600}
+ .phone-graphic-header button{min-height:44px;min-width:64px;border:1px solid #121212;background:#F5F3EE;color:#121212;font:inherit;font-size:14px;cursor:pointer}
+ .phone-graphic-dialog>p{margin:0;padding:0 16px 12px;font-size:12px;line-height:1.5;color:#55524C}
+ .phone-graphic-viewport{flex:1;min-height:0;overflow:auto;padding:16px;overscroll-behavior:contain;border-top:1px solid #D9D5CC}
+ .phone-graphic-content svg{display:block;width:720px !important;max-width:none;height:auto !important}
+ .service-tools{gap:6px}
+ .service-tools>span:first-child{display:none}
+ .service-tools>span{font-size:11px !important;padding:5px 7px !important;gap:5px !important}
+ .service-tools img{width:20px !important;height:20px !important}
+ .service-summary{font-size:16px;line-height:1.65}
+ .service-point{font-size:15px;line-height:1.6;padding:12px 0}
+ .service-enquiry a{display:flex;align-items:center;justify-content:center;min-height:48px;box-sizing:border-box;padding:12px;border:1px solid #121212;font-size:14px;text-decoration:none;text-align:center}
+ #scale>.section-frame{gap:28px !important}
+ #scale article{padding:24px !important;gap:16px !important}
+ #scale article p{font-size:16px !important;line-height:1.65 !important}
+ #how>.section-frame{gap:24px !important}
+ #how [aria-label="Steps"]{width:100%;justify-content:space-between}
+ #howScroll{height:auto !important;overflow:visible !important;scroll-snap-type:none !important}
+ #howScroll>.howStage{position:static !important;height:auto !important;margin-bottom:0 !important;padding:24px 0 !important;overflow:visible !important;contain:none !important}
+ #howScroll>.howStage>div{height:auto !important;grid-template-columns:1fr !important;gap:24px !important}
+ #howScroll>.howStage>div>div:first-child{padding:0 !important;gap:12px !important}
+ #howScroll>.howStage>div>div:first-child>span{font-size:48px !important}
+ #howScroll p{font-size:16px !important;line-height:1.65 !important}
+ #howScroll>.howStage>div>div:last-child{padding:12px !important}
+ #howScroll>div:not(.howStage){display:none}
+ .desktop-how-hint{display:none}
+ .phone-how-hint{display:block;margin:0;font-size:13px;line-height:1.5;color:#55524C}
+ #about{gap:28px !important}
+ #about>img{aspect-ratio:4/3 !important;max-width:none !important;object-position:center 35%}
+ #about>div{gap:18px !important}
+ #about p:not(.section-eyebrow){font-size:16px !important;line-height:1.65 !important}
+ #about dl{grid-template-columns:1fr !important}
+ #contact>.section-frame{gap:32px !important}
+ #contact h2{font-size:38px !important;line-height:1.1 !important;text-wrap:initial !important}
+ #contact p:not(.section-eyebrow){font-size:16px !important;line-height:1.65 !important}
+ #contact>.section-frame>div:first-child>div{gap:14px !important;font-size:15px !important;line-height:1.5}
+ #contact .chip{font-size:13px !important;padding:10px 12px !important}
+ #contact .field{width:100%;min-width:0;border-radius:0}
+ #contact form>div[style*="display: grid"]{grid-template-columns:1fr !important}
+ #contact form button[type="submit"]{width:100%}
+ footer>div{max-width:560px !important;padding:32px 20px !important;gap:20px !important}
+ footer>div>div{flex-direction:column;gap:16px !important}
+ footer a{min-height:44px;display:flex;align-items:center}
+}
+
 </style>
 
 </head>
@@ -144,13 +247,23 @@ button:focus-visible,a:focus-visible,input:focus-visible{outline:2px solid #1212
 <a href="#top" aria-label="Gillot Designs — home" style="display: flex; align-items: center">
 <img class="logo" src="/_blob/d3019039e66ba58b28e8b389828798bc" alt="Gillot Designs — Engineering &amp; Consulting" style="height: 56px; width: auto; display: block">
 </a>
-<div style="display: flex; flex-wrap: wrap; align-items: center; gap: 8px 32px; font-size: 14px; font-weight: 500; letter-spacing: 0.04em">
+<div class="desktop-nav" style="display: flex; flex-wrap: wrap; align-items: center; gap: 8px 32px; font-size: 14px; font-weight: 500; letter-spacing: 0.04em">
 <a class="navlink" href="#services">Services</a>
 <a class="navlink" href="#scale">Projects</a>
 <a class="navlink" href="#how">How I work</a>
 <a class="navlink" href="#about">About</a>
 <a class="btn btn-dark" href="#contact" style="text-decoration: none; background: #121212; color: #F5F3EE; padding: 14px 22px; min-height: 44px; box-sizing: border-box; display: inline-flex; align-items: center">Get in touch</a>
 </div>
+<details class="phone-menu" onClick="{{phoneMenuClick}}" onKeyDown="{{phoneMenuKey}}">
+<summary aria-label="Main navigation menu">Menu</summary>
+<div class="phone-menu-links">
+<a class="navlink" href="#services">Services</a>
+<a class="navlink" href="#scale">Projects</a>
+<a class="navlink" href="#how">How I work</a>
+<a class="navlink" href="#about">About</a>
+<a class="navlink" href="#contact">Get in touch</a>
+</div>
+</details>
 </nav>
 </header>
 
@@ -309,7 +422,7 @@ button:focus-visible,a:focus-visible,input:focus-visible{outline:2px solid #1212
 
 <!-- CREDENTIALS BAND -->
 <div style="background: #FFFFFF; color: #121212; border-top: 1px solid #D9D5CC; border-bottom: 1px solid #D9D5CC">
-<div style="max-width: 1200px; margin: 0 auto; padding: 28px clamp(16px, 4vw, 48px); display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 28px 48px">
+<div class="credentials-inner" style="max-width: 1200px; margin: 0 auto; padding: 28px clamp(16px, 4vw, 48px); display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 28px 48px">
 <div style="display: flex; flex-direction: column; gap: 14px">
 <p style="margin: 0; font-size: 11px; font-weight: 600; letter-spacing: 0.24em; text-transform: uppercase; color: #55524C">Software expertise</p>
 <ul aria-label="Software" style="list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 16px 10px">
@@ -363,6 +476,12 @@ button:focus-visible,a:focus-visible,input:focus-visible{outline:2px solid #1212
 <p class="services-intro-copy">Model the building, test the options, then decide. Practical, buildable advice within your budget, for a single assessment or support throughout the project with your design and construction team.</p>
 </header>
 <div class="services-layout">
+<div class="phone-service-picker">
+<label for="phone-service">Explore services · {{serviceNumber}} of 6</label>
+<select id="phone-service" value="{{serviceIndex}}" onChange="{{selectPhoneService}}">
+<sc-for list="{{services}}" as="s" hint-placeholder-count="6"><option value="{{s.index}}">{{s.num}} — {{s.title}}</option></sc-for>
+</select>
+</div>
 <div class="services-nav" role="group" aria-label="Services">
 <sc-for list="{{services}}" as="s" hint-placeholder-count="6">
 <button class="svc" type="button" onClick="{{s.pick}}" aria-pressed="{{s.pressed}}" style="background: {{s.bg}}; color: {{s.fg}}">
@@ -692,6 +811,7 @@ button:focus-visible,a:focus-visible,input:focus-visible{outline:2px solid #1212
 </sc-if>
 
 </div>
+<button type="button" class="phone-graphic-open" onClick="{{openPhoneGraphic}}" aria-haspopup="dialog">Enlarge graphic ↗</button>
 <sc-if value="{{sel.hasCaption}}" hint-placeholder-val="{{ false }}"><figcaption style="font-size: 13px; line-height: 1.55; color: #3A3833">{{sel.caption}}</figcaption></sc-if>
 </figure>
 <sc-if value="{{sel.hasTools}}" hint-placeholder-val="{{ true }}">
@@ -708,6 +828,11 @@ button:focus-visible,a:focus-visible,input:focus-visible{outline:2px solid #1212
 </div>
 </article>
 </div>
+<dialog id="phone-graphic-dialog" class="phone-graphic-dialog" aria-labelledby="phone-graphic-title" onClose="{{phoneGraphicClosed}}">
+<div class="phone-graphic-header"><h3 id="phone-graphic-title">{{sel.title}}</h3><button type="button" onClick="{{closePhoneGraphic}}" autofocus>Close</button></div>
+<p>Swipe across the graphic to explore the detail.</p>
+<div class="phone-graphic-viewport" tabindex="0" aria-label="Enlarged graphic. Scroll to explore."><div class="phone-graphic-content"></div></div>
+</dialog>
 </section>
 
 <!-- SCALE -->
@@ -771,7 +896,7 @@ button:focus-visible,a:focus-visible,input:focus-visible{outline:2px solid #1212
 </sc-for>
 </div>
 </div>
-<div id="howScroll" class="howScroll" tabindex="0" aria-label="How I work, four steps. Scroll inside this area to move between them." onScroll="{{howScroll}}" onWheel="{{howWheel}}" style="height: 460px; overflow-y: auto; overscroll-behavior-y: auto; overflow-anchor: none; scroll-snap-type: y proximity; -webkit-overflow-scrolling: touch; border-top: 1.5px solid #121212; border-bottom: 1px solid #D9D5CC">
+<div id="howScroll" class="howScroll" tabindex="0" aria-label="{{howScrollLabel}}" onScroll="{{howScroll}}" onWheel="{{howWheel}}" style="height: 460px; overflow-y: auto; overscroll-behavior-y: auto; overflow-anchor: none; scroll-snap-type: y proximity; -webkit-overflow-scrolling: touch; border-top: 1.5px solid #121212; border-bottom: 1px solid #D9D5CC">
 <div style="position: sticky; top: 0; height: 100%; margin-bottom: -460px; box-sizing: border-box; padding: 24px 0; overflow: hidden; contain: layout paint; z-index: 1" class="howStage">
 <sc-if value="{{how.s0}}" hint-placeholder-val="{{ true }}">
 <div class="fade" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(360px, 100%), 1fr)); gap: 24px; align-items: center; height: 100%">
@@ -938,7 +1063,8 @@ button:focus-visible,a:focus-visible,input:focus-visible{outline:2px solid #1212
 <div style="height: 100%; scroll-snap-align: start; scroll-snap-stop: normal"></div>
 <div style="height: 100%; scroll-snap-align: start; scroll-snap-stop: normal"></div>
 </div>
-<p style="margin: 0; font-size: 13px; color: #55524C">Scroll through the steps, then keep scrolling to continue down the page. You can also pick a number.</p>
+<p class="desktop-how-hint" style="margin: 0; font-size: 13px; color: #55524C">Scroll through the steps, then keep scrolling to continue down the page. You can also pick a number.</p>
+<p class="phone-how-hint">Tap a number to explore each step.</p>
 </div>
 </section>
 
@@ -1112,10 +1238,24 @@ window.__mount=function(C, defaults){ root=document.getElementById("app"); inst=
 </script>
 <script>
 
+// Match only phone layouts, including a phone held sideways.
+function isPhoneLayout() { return window.matchMedia("(max-width:640px), (max-width:960px) and (max-height:500px) and (pointer:coarse)").matches; }
 var Component = class extends DCLogic {
 constructor(props) {
 super(props);
 this.state = { layer: "fabric", season: 0, ventSeason: 0, svc: 0, needs: {}, sent: false, howStep: 0 };
+}
+componentDidMount() {
+var self = this;
+window.matchMedia("(max-width:640px), (max-width:960px) and (max-height:500px) and (pointer:coarse)").addEventListener("change", function () {
+self.forceUpdate();
+var dialog = document.getElementById("phone-graphic-dialog");
+if (dialog && dialog.open && !isPhoneLayout()) dialog.close();
+requestAnimationFrame(function () {
+var el = document.getElementById("howScroll");
+if (el && !isPhoneLayout()) el.scrollTo({top:self.state.howStep * el.clientHeight,behavior:"instant"});
+});
+});
 }
 renderVals() {
 var self = this;
@@ -1292,6 +1432,7 @@ var si = this.state.svc;
 var services = SERVICES.map(function (sv, i) {
 var on = i === si;
 return {
+index: i,
 num: "0" + (i + 1),
 title: sv.title,
 pressed: on ? "true" : "false",
@@ -1302,7 +1443,12 @@ pick: function () {
 self.setState({ svc: i });
 requestAnimationFrame(function () {
 var panel = document.querySelector(".services-layout");
-if (!panel || window.innerWidth < 1024) return;
+if (!panel) return;
+if (isPhoneLayout()) {
+window.scrollTo({top:window.scrollY + panel.getBoundingClientRect().top,behavior:window.matchMedia("(prefers-reduced-motion:reduce)").matches ? "instant" : "smooth"});
+return;
+}
+if (window.innerWidth < 1024) return;
 var rect = panel.getBoundingClientRect(), inset = 24;
 if (rect.height <= window.innerHeight - inset * 2 && (rect.top < inset || rect.bottom > window.innerHeight - inset)) {
 window.scrollTo({ top: window.scrollY + rect.top - inset, behavior: "instant" });
@@ -1597,10 +1743,11 @@ var on = self.state.howStep === i;
 return {
 n: i + 1, pressed: on ? "true" : "false",
 bg: on ? "#121212" : "#FFFFFF", fg: on ? "#F5F3EE" : "#121212", border: on ? "#121212" : "#9C978C",
-go: function () { var el = document.getElementById("howScroll"); if (el) el.scrollTo({ top: i * el.clientHeight, behavior: "smooth" }); self.setState({ howStep: i }); }
+go: function () { var el = document.getElementById("howScroll"); if (el && !isPhoneLayout()) el.scrollTo({ top: i * el.clientHeight, behavior: "smooth" }); self.setState({ howStep: i }); }
 };
 }),
 howWheel: function (e) {
+if (isPhoneLayout()) return;
 var el = e.currentTarget;
 if (!e.deltaY || Math.abs(e.deltaX) > Math.abs(e.deltaY)) return;
 var delta = e.deltaY * (e.deltaMode === 1 ? 16 : e.deltaMode === 2 ? el.clientHeight : 1);
@@ -1613,11 +1760,31 @@ window.scrollBy({ top: delta, left: 0, behavior: "instant" });
 }
 },
 howScroll: function (e) {
+if (isPhoneLayout()) return;
 var el = e.currentTarget, h = Math.max(1, el.clientHeight), i = Math.floor((el.scrollTop + h * 0.45) / h);
 i = Math.max(0, Math.min(3, i));
 if (i !== self.state.howStep) self.setState({ howStep: i });
 },
 setSeason: function (e) { self.setState({ season: Number(e.target.value) }); },
+openPhoneGraphic: function () {
+var dialog=document.getElementById("phone-graphic-dialog"), graphic=document.querySelector(".service-chart svg");
+if (!isPhoneLayout() || !dialog || !graphic || dialog.open) return;
+dialog.querySelector(".phone-graphic-content").replaceChildren(graphic.cloneNode(true));
+self.phoneBodyOverflow=document.body.style.overflow;
+document.body.style.overflow="hidden";
+dialog.showModal();
+var viewport=dialog.querySelector(".phone-graphic-viewport");
+viewport.scrollTop=0;
+viewport.scrollLeft=(viewport.scrollWidth-viewport.clientWidth)/2;
+},
+closePhoneGraphic: function () { document.getElementById("phone-graphic-dialog").close(); },
+phoneGraphicClosed: function () { document.body.style.overflow=self.phoneBodyOverflow || ""; },
+phoneMenuClick: function (e) { if (e.target.closest("a")) e.currentTarget.open = false; },
+phoneMenuKey: function (e) { if (e.key === "Escape") {e.currentTarget.open = false;e.currentTarget.querySelector("summary").focus();} },
+serviceIndex: si,
+serviceNumber: si + 1,
+selectPhoneService: function (e) { var next=services[Number(e.target.value)]; if (next) next.pick(); },
+howScrollLabel: isPhoneLayout() ? "How I work. Use the numbered buttons to choose a step." : "How I work, four steps. Scroll inside this area to move between them.",
 services: services,
 sel: sel,
 show: show,
