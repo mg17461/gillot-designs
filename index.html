@@ -174,8 +174,17 @@ button:focus-visible,a:focus-visible,input:focus-visible{outline:2px solid #1212
  .services-layout{display:block;border-top:0}
  .services-nav{display:none}
  .phone-service-picker{display:flex;flex-direction:column;gap:8px;position:sticky;top:0;z-index:5;padding:12px 0;background:#F5F3EE;border-top:1.5px solid #121212;border-bottom:1px solid #D9D5CC}
- .phone-service-picker label{font-size:11px;font-weight:600;letter-spacing:.12em;text-transform:uppercase}
- .phone-service-picker select{font:inherit;font-size:16px;font-weight:500;line-height:1.4;width:100%;min-height:50px;box-sizing:border-box;padding:12px 32px 12px 12px;border:1px solid #121212;border-radius:0;background:#FFFFFF;color:#121212}
+ .phone-service-label{margin:0;font-size:11px;font-weight:600;letter-spacing:.12em;text-transform:uppercase}
+ #phone-service{position:relative}
+ #phone-service summary{font:inherit;font-size:16px;font-weight:500;line-height:1.4;min-height:50px;box-sizing:border-box;padding:12px;border:1px solid #121212;background:#FFFFFF;color:#121212;display:flex;align-items:center;justify-content:space-between;gap:12px;list-style:none;cursor:pointer}
+ #phone-service summary::-webkit-details-marker{display:none}
+ #phone-service summary::after{content:'';width:8px;height:8px;border-right:1.5px solid currentColor;border-bottom:1.5px solid currentColor;transform:rotate(45deg);flex:none;margin:-4px 3px 0 0}
+ #phone-service[open] summary::after{transform:rotate(225deg);margin-top:4px}
+ .phone-service-options{position:absolute;top:calc(100% + 6px);left:0;right:0;max-height:min(60svh,420px);overflow-y:auto;overscroll-behavior:contain;background:#FFFFFF;border:1px solid #121212;box-shadow:0 8px 20px #1212121A}
+ .phone-service-options button{display:flex;align-items:baseline;gap:12px;width:100%;min-height:52px;box-sizing:border-box;padding:14px 12px;border:0;border-bottom:1px solid #D9D5CC;background:#FFFFFF;color:#121212;font:inherit;font-size:15px;line-height:1.5;text-align:left;cursor:pointer}
+ .phone-service-options button:last-child{border-bottom:0}
+ .phone-service-options button[aria-pressed="true"]{background:#121212;color:#FFFFFF}
+ .phone-service-options .service-number{font-size:17px;min-width:22px}
  .service-panel{display:flex;flex-direction:column;gap:24px;min-height:0;padding:24px 0 0;background:transparent;border:0}
  .service-heading{order:1;gap:8px}
  .service-heading h3{font-size:30px;line-height:1.15;text-wrap:balance}
@@ -477,10 +486,15 @@ button:focus-visible,a:focus-visible,input:focus-visible{outline:2px solid #1212
 </header>
 <div class="services-layout">
 <div class="phone-service-picker">
-<label for="phone-service">Explore services · {{serviceNumber}} of 6</label>
-<select id="phone-service" value="{{serviceIndex}}" onChange="{{selectPhoneService}}">
-<sc-for list="{{services}}" as="s" hint-placeholder-count="6"><option value="{{s.index}}">{{s.num}} — {{s.title}}</option></sc-for>
-</select>
+<p class="phone-service-label" id="phone-service-label">Explore services · {{serviceNumber}} of 6</p>
+<details id="phone-service" onToggle="{{phoneServicesToggle}}" onKeyDown="{{phoneMenuKey}}">
+<summary aria-describedby="phone-service-label"><span>{{serviceCode}} — {{sel.title}}</span></summary>
+<div class="phone-service-options" role="group" aria-label="Choose a service">
+<sc-for list="{{services}}" as="s" hint-placeholder-count="6">
+<button type="button" onClick="{{s.pick}}" aria-pressed="{{s.pressed}}"><span class="service-number">{{s.num}}</span><span>{{s.title}}</span></button>
+</sc-for>
+</div>
+</details>
 </div>
 <div class="services-nav" role="group" aria-label="Services">
 <sc-for list="{{services}}" as="s" hint-placeholder-count="6">
@@ -1247,6 +1261,10 @@ this.state = { layer: "fabric", season: 0, ventSeason: 0, svc: 0, needs: {}, sen
 }
 componentDidMount() {
 var self = this;
+document.addEventListener("pointerdown", function (e) {
+var menu=document.getElementById("phone-service");
+if (isPhoneLayout() && menu && menu.open && !menu.contains(e.target)) menu.open=false;
+});
 window.matchMedia("(max-width:640px), (max-width:960px) and (max-height:500px) and (pointer:coarse)").addEventListener("change", function () {
 self.forceUpdate();
 var dialog = document.getElementById("phone-graphic-dialog");
@@ -1432,7 +1450,6 @@ var si = this.state.svc;
 var services = SERVICES.map(function (sv, i) {
 var on = i === si;
 return {
-index: i,
 num: "0" + (i + 1),
 title: sv.title,
 pressed: on ? "true" : "false",
@@ -1440,6 +1457,10 @@ bg: on ? "#121212" : "transparent",
 fg: on ? "#F5F3EE" : "#121212",
 numColor: on ? "#E8A595" : accentText,
 pick: function () {
+if (isPhoneLayout()) {
+var menu=document.getElementById("phone-service");
+if (menu) {menu.open=false;menu.querySelector("summary").focus({preventScroll:true});}
+}
 self.setState({ svc: i });
 requestAnimationFrame(function () {
 var panel = document.querySelector(".services-layout");
@@ -1781,9 +1802,14 @@ closePhoneGraphic: function () { document.getElementById("phone-graphic-dialog")
 phoneGraphicClosed: function () { document.body.style.overflow=self.phoneBodyOverflow || ""; },
 phoneMenuClick: function (e) { if (e.target.closest("a")) e.currentTarget.open = false; },
 phoneMenuKey: function (e) { if (e.key === "Escape") {e.currentTarget.open = false;e.currentTarget.querySelector("summary").focus();} },
-serviceIndex: si,
+serviceCode: "0" + (si + 1),
 serviceNumber: si + 1,
-selectPhoneService: function (e) { var next=services[Number(e.target.value)]; if (next) next.pick(); },
+phoneServicesToggle: function (e) {
+if (e.currentTarget.open && isPhoneLayout()) {
+var panel=document.querySelector(".services-layout");
+window.scrollTo({top:window.scrollY+panel.getBoundingClientRect().top,behavior:"instant"});
+}
+},
 howScrollLabel: isPhoneLayout() ? "How I work. Use the numbered buttons to choose a step." : "How I work, four steps. Scroll inside this area to move between them.",
 services: services,
 sel: sel,
