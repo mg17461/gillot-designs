@@ -509,46 +509,55 @@ button:focus-visible,a:focus-visible,input:focus-visible{outline:2px solid #1212
 </sc-if>
 
 <sc-if value="{{show.s3}}" hint-placeholder-val="{{ false }}">
-<svg class="fade" viewBox="0 0 520 340" role="img" aria-label="Isometric daylight study with south-facing window-head overhangs and west-facing vertical fins. South and west glazing has a g-value of 0.35. North and east have slightly larger, unshaded windows with a g-value of 0.50." style="width: 100%; height: auto; display: block">
+<svg class="fade" viewBox="0 0 600 500" role="img" aria-label="Exploded axonometric daylight study of a small two-bedroom house. The roof is lifted above a cutaway plan, with a separate daylight mesh in the living room, kitchen and dining room, two bedrooms, bathroom and hall. South-facing windows have overhangs and west-facing windows have vertical fins, both with g-value 0.35. Larger north and east windows are unshaded, with g-value 0.50." style="width: 100%; height: auto; display: block">
 <g font-family="Montserrat, Arial, sans-serif" fill="#121212">
-<text x="20" y="18" font-size="13" font-weight="600">Daylight autonomy, glazing tuned per façade</text>
-<text x="20" y="37" font-size="8" font-weight="600" fill="#3A3833">DA %</text>
-<rect x="46" y="29" width="18" height="9" fill="#3B3F9A"></rect><rect x="64" y="29" width="18" height="9" fill="#7B2D8E"></rect><rect x="82" y="29" width="18" height="9" fill="#C8293F"></rect><rect x="100" y="29" width="18" height="9" fill="#E8641B"></rect><rect x="118" y="29" width="18" height="9" fill="#F4A21D"></rect><rect x="136" y="29" width="18" height="9" fill="#F2E21F"></rect>
-<g font-size="7.5" fill="#55524C" text-anchor="middle"><text x="64" y="48">10</text><text x="82" y="48">30</text><text x="100" y="48">50</text><text x="118" y="48">70</text><text x="136" y="48">90</text></g>
-<path d="{{dl.faceF}}" fill="#F1EFEA" stroke="#121212" stroke-width="1"></path>
-<path d="{{dl.faceR}}" fill="#E2DED5" stroke="#121212" stroke-width="1"></path>
-<path d="{{dl.floors}}" fill="none" stroke="#9C978C" stroke-width="0.8"></path>
-<path d="{{dl.wins}}" fill="#BFDDF2" stroke="#3A3833" stroke-width="0.6"></path>
-<path data-facade="south" data-shading="overhang" d="{{dl.southShades}}" fill="#BDB8AD" stroke="#3A3833" stroke-width="0.7" stroke-linejoin="round"></path>
-<path d="{{dl.plate}}" fill="#FFFFFF" stroke="#121212" stroke-width="1"></path>
-<path d="{{dl.d0}}" fill="#3B3F9A"></path>
-<path d="{{dl.d1}}" fill="#7B2D8E"></path>
-<path d="{{dl.d2}}" fill="#C8293F"></path>
-<path d="{{dl.d3}}" fill="#E8641B"></path>
-<path d="{{dl.d4}}" fill="#F4A21D"></path>
-<path d="{{dl.d5}}" fill="#F2E21F"></path>
-<path d="{{dl.corr}}" fill="#D9D5CC"></path>
-<path d="{{dl.grid}}" fill="none" stroke="#FFFFFF" stroke-opacity="0.45" stroke-width="0.5"></path>
-<path d="{{dl.parts}}" fill="none" stroke="#FFFFFF" stroke-width="2.6" stroke-linecap="round"></path>
-<path d="{{dl.outer}}" fill="none" stroke="#121212" stroke-width="2" stroke-linejoin="round"></path>
-<path d="{{dl.glaz}}" fill="none" stroke="#5BAADF" stroke-width="3.5" stroke-linecap="butt"></path>
-<path d="{{dl.ghost}}" fill="none" stroke="#121212" stroke-width="1" opacity="0.4"></path>
-<path d="{{dl.topWindows}}" fill="#BFDDF2" fill-opacity="0.65" stroke="#3A3833" stroke-width="0.6"></path>
-<path data-facade="south" data-shading="overhang" d="{{dl.topSouthShades}}" fill="#BDB8AD" stroke="#3A3833" stroke-width="0.7" stroke-linejoin="round"></path>
-<path data-facade="west" data-shading="vertical-fin" d="{{dl.westFins}}" fill="#BDB8AD" stroke="#3A3833" stroke-width="0.7" stroke-linejoin="round"></path>
-<g stroke="#121212" stroke-width="0.8" fill="none">
-<path d="M440 124 L428 152"></path><path d="M138 82 L207 88"></path><path d="M152 264 L207 187"></path><path d="M450 300 L449 255"></path>
+<text x="18" y="21" font-size="14" font-weight="600">Daylight in a two-bedroom home</text>
+<text x="18" y="42" font-size="9" fill="#55524C">Daylight autonomy</text>
+<g transform="translate(120 33)">
+<rect width="19" height="9" fill="#3B3F9A"></rect><rect x="19" width="19" height="9" fill="#7B2D8E"></rect><rect x="38" width="19" height="9" fill="#C8293F"></rect><rect x="57" width="19" height="9" fill="#E8641B"></rect><rect x="76" width="19" height="9" fill="#F4A21D"></rect><rect x="95" width="19" height="9" fill="#F2E21F"></rect>
+<text x="0" y="22" font-size="8" fill="#55524C">Low</text><text x="114" y="22" text-anchor="end" font-size="8" fill="#55524C">High</text>
 </g>
-<g fill="#121212"><circle cx="428" cy="152" r="2"></circle><circle cx="207" cy="88" r="2"></circle><circle cx="207" cy="187" r="2"></circle><circle cx="449" cy="255" r="2"></circle></g>
-<g font-size="8.5">
-<rect x="390" y="94" width="126" height="30" fill="#FFFFFF" stroke="#121212" stroke-width="0.8"></rect>
-<text x="396" y="106" font-weight="600">NORTH · g-value 0.50</text><text x="396" y="118" fill="#3A3833">Larger windows, no shade</text>
-<rect x="16" y="68" width="122" height="30" fill="#FFFFFF" stroke="#121212" stroke-width="0.8"></rect>
-<text x="22" y="80" font-weight="600">WEST · g-value 0.35</text><text x="22" y="92" fill="#3A3833">Vertical fins</text>
-<rect x="16" y="250" width="136" height="30" fill="#FFFFFF" stroke="#121212" stroke-width="0.8"></rect>
-<text x="22" y="262" font-weight="600">SOUTH · g-value 0.35</text><text x="22" y="274" fill="#3A3833">Window-head overhangs</text>
-<rect x="396" y="300" width="120" height="30" fill="#FFFFFF" stroke="#121212" stroke-width="0.8"></rect>
-<text x="402" y="312" font-weight="600">EAST · g-value 0.50</text><text x="402" y="324" fill="#3A3833">Larger windows, no shade</text>
+<!-- The detached roof and projection lines reveal the occupied rooms below. -->
+<path d="{{dl.guides}}" fill="none" stroke="#BDB8AD" stroke-width="0.9" stroke-dasharray="4 5"></path>
+<path d="{{dl.roofEdge}}" fill="#D9D5CC" stroke="#55524C" stroke-width="0.9"></path>
+<path d="{{dl.roof}}" fill="#F5F3EE" stroke="#55524C" stroke-width="1.1"></path>
+<path d="{{dl.roofInset}}" fill="none" stroke="#D9D5CC" stroke-width="0.8"></path>
+<path d="{{dl.roofLeader}}" fill="none" stroke="#9C978C" stroke-width="0.8"></path>
+<text x="468" y="87" font-size="10" fill="#55524C">Roof lifted</text>
+<text x="468" y="102" font-size="9" fill="#55524C">to reveal the rooms</text>
+<!-- Ground slab and low cutaway walls keep every room's mesh visible. -->
+<path d="{{dl.slabEdge}}" fill="#D9D5CC" stroke="#55524C" stroke-width="0.9"></path>
+<path d="{{dl.slab}}" fill="#FBFAF7" stroke="#121212" stroke-width="1.2"></path>
+<sc-for list="{{dl.rooms}}" as="room" hint-placeholder-count="6">
+<g data-daylight-room="{{room.name}}">
+<sc-for list="{{room.mesh}}" as="m" hint-placeholder-count="6">
+<path d="{{m.d}}" fill="{{m.fill}}"></path>
+</sc-for>
+<path d="{{room.grid}}" fill="none" stroke="#FFFFFF" stroke-opacity="0.5" stroke-width="0.4"></path>
+</g>
+</sc-for>
+<path d="{{dl.backWalls}}" fill="#ECE9E1" stroke="#55524C" stroke-width="0.8"></path>
+<path d="{{dl.backCaps}}" fill="none" stroke="#55524C" stroke-width="2"></path>
+<path d="{{dl.partitions}}" fill="#F5F3EE" stroke="#55524C" stroke-width="0.7"></path>
+<path d="{{dl.partitionCaps}}" fill="none" stroke="#55524C" stroke-width="1.8" stroke-linejoin="round"></path>
+<path d="{{dl.frontWalls}}" fill="#E7E3DA" stroke="#55524C" stroke-width="0.8"></path>
+<path d="{{dl.windows}}" fill="#BFDDF2" fill-opacity="0.68" stroke="#517A91" stroke-width="0.7"></path>
+<path d="{{dl.frames}}" fill="none" stroke="#517A91" stroke-width="0.6"></path>
+<path data-facade="south" data-shading="overhang" d="{{dl.southShades}}" fill="#BDB8AD" stroke="#55524C" stroke-width="0.7"></path>
+<path data-facade="west" data-shading="vertical-fin" d="{{dl.westFins}}" fill="#BDB8AD" stroke="#55524C" stroke-width="0.7"></path>
+<path d="{{dl.furniture}}" fill="#FFFFFF" fill-opacity="0.72" stroke="#55524C" stroke-width="0.75" stroke-linejoin="round"></path>
+<path d="{{dl.furnitureDetail}}" fill="none" stroke="#77736B" stroke-width="0.65"></path>
+<sc-for list="{{dl.rooms}}" as="room" hint-placeholder-count="6">
+<text x="{{room.lx}}" y="{{room.ly}}" text-anchor="middle" font-size="11" font-weight="600" stroke="#FFFFFF" stroke-width="3.5" stroke-linejoin="round" style="paint-order: stroke fill">{{room.name}}</text>
+</sc-for>
+<g font-size="10" font-weight="600" fill="#55524C">
+<text x="{{dl.n.x}}" y="{{dl.n.y}}">N</text><text x="{{dl.e.x}}" y="{{dl.e.y}}">E</text><text x="{{dl.s.x}}" y="{{dl.s.y}}">S</text><text x="{{dl.w.x}}" y="{{dl.w.y}}">W</text>
+</g>
+<line x1="18" y1="448" x2="582" y2="448" stroke="#D9D5CC"></line>
+<g font-size="10">
+<text x="18" y="467"><tspan font-weight="600">SOUTH · g-value 0.35</tspan><tspan x="18" dy="15" fill="#55524C">Overhangs above the windows</tspan></text>
+<text x="224" y="467"><tspan font-weight="600">WEST · g-value 0.35</tspan><tspan x="224" dy="15" fill="#55524C">Vertical shading fins</tspan></text>
+<text x="412" y="467"><tspan font-weight="600">NORTH / EAST · g-value 0.50</tspan><tspan x="412" dy="15" fill="#55524C">Larger, unshaded windows</tspan></text>
 </g>
 </g>
 </svg>
@@ -1377,88 +1386,68 @@ out.edges += "M" + X[i] + " " + y.toFixed(1) + " h" + W + " ";
 return out;
 })();
 
-/* 04 Daylight: isometric floor plate with daylight factor map */
+/* 04 Daylight: a small house with an exploded roof and room-by-room meshes.
+   The mesh is a schematic visual, not a calculated assessment result. */
 var dl = (function () {
-var s = 16, cx = 0.866 * s, cy = 0.5 * s, ox = 262, oy = 56;
-function p(x, y, z) { return [ox + (x - y) * cx, oy + (x + y) * cy - (z || 0) * s]; }
-var W = 18, D = 9, c0 = 3.8, c1 = 5.2, H = 3.3;
-var bins = ["", "", "", "", "", ""], corr = "", grid = "", glaz = "";
-/* Larger unshaded north/east windows; south overhangs and west fins. */
-var NW = [1.4, 3.6, 6.4, 8.6, 11.2, 12.9, 15, 17], wN = 1.8, kN = 1.3;
-var SW = [1.2, 3, 5.5, 7.5, 10.5, 12, 15, 16.8], wS = 0.9, kS = 0.75;
-var GW = [1.8, 7.2], wW = 1.0, wE = 1.3, kG = 0.9;
-var NR = [[0, 5], [5, 10], [10, 14], [14, 18]], SR = [[0, 4], [4, 9], [9, 13.5], [13.5, 18]];
-NW.forEach(function (w) { glaz += polyOf([p(w - wN / 2, 0), p(w + wN / 2, 0)]); });
-SW.forEach(function (w) { glaz += polyOf([p(w - wS / 2, D), p(w + wS / 2, D)]); });
-GW.forEach(function (w) { glaz += polyOf([p(0, w - wW / 2), p(0, w + wW / 2)]) + polyOf([p(W, w - wE / 2), p(W, w + wE / 2)]); });
-function roomOf(xc, rooms) { for (var r = 0; r < rooms.length; r++) if (xc >= rooms[r][0] && xc < rooms[r][1]) return rooms[r]; return rooms[0]; }
-for (var i = 0; i < 36; i++) {
-for (var j = 0; j < 18; j++) {
-var x0 = i * 0.5, y0 = j * 0.5, xc = x0 + 0.25, yc = y0 + 0.25;
-var cell = quadOf([p(x0, y0), p(x0 + 0.5, y0), p(x0 + 0.5, y0 + 0.5), p(x0, y0 + 0.5)]);
-grid += cell;
-if (yc > c0 && yc < c1) { corr += cell; continue; }
-var north = yc < c0, rm = roomOf(xc, north ? NR : SR), dn = north ? yc : D - yc, sum = 0, kk = north ? kN : kS;
-(north ? NW : SW).forEach(function (w) {
-if (w < rm[0] || w > rm[1]) return;
-var dx = xc - w, spread = 0.7 + 0.55 * dn;
-sum += kk * Math.exp(-dn / 1.25) / (1 + (dx / spread) * (dx / spread));
-});
-var gy = north ? 1.8 : 7.2;
-if (rm[0] === 0) sum += kG * Math.exp(-xc / 1.25) / (1 + Math.pow((yc - gy) / (0.7 + 0.55 * xc), 2));
-if (rm[1] === W) sum += kG * Math.exp(-(W - xc) / 1.25) / (1 + Math.pow((yc - gy) / (0.7 + 0.55 * (W - xc)), 2));
-var noise = Math.abs((Math.sin(i * 12.9898 + j * 78.233) * 43758.5453) % 1);
-var da = 100 * (1 - Math.exp(-3.2 * sum)) + noise * 4;
-var b = da < 10 ? 0 : da < 30 ? 1 : da < 50 ? 2 : da < 70 ? 3 : da < 90 ? 4 : 5;
-bins[b] += cell;
+var W = 9, D = 7, ox = 285, oy = 205, cx = 26, cy = 13, zs = 22;
+function p(x, y, z) { return [ox + (x - y) * cx, oy + (x + y) * cy - (z || 0) * zs]; }
+function flat(x0, y0, x1, y1, z) { return quadOf([p(x0,y0,z),p(x1,y0,z),p(x1,y1,z),p(x0,y1,z)]); }
+function wall(x0,y0,x1,y1,h) { return quadOf([p(x0,y0),p(x1,y1),p(x1,y1,h),p(x0,y0,h)]); }
+var colours = ["#3B3F9A", "#7B2D8E", "#C8293F", "#E8641B", "#F4A21D", "#F2E21F"];
+var rooms = [
+{name:"Bedroom 1",x0:0.15,y0:0.15,x1:3.3,y1:2.9,label:[1.75,2.55],light:[[1.6,0,1.25],[0,1.5,0.8]]},
+{name:"Bathroom",x0:3.45,y0:0.15,x1:5.1,y1:2.9,label:[4.3,2.5],light:[[4.3,0,0.8]]},
+{name:"Bedroom 2",x0:5.25,y0:0.15,x1:8.85,y1:2.9,label:[7.05,2.55],light:[[7.1,0,1.3],[9,1.5,1.2]]},
+{name:"Hall",x0:0.15,y0:3.05,x1:8.85,y1:3.9,label:[4.5,3.6],light:[[9,3.5,0.6]]},
+{name:"Living room",x0:0.15,y0:4.05,x1:5.1,y1:6.85,label:[3.15,6.2],light:[[1.5,7,1.1],[3.85,7,1.1],[0,5.5,0.75]]},
+{name:"Kitchen / dining",x0:5.25,y0:4.05,x1:8.85,y1:6.85,label:[7.05,6.4],light:[[7,7,1.1],[9,5.45,1.2]]}
+];
+rooms.forEach(function (room) {
+var bins = ["", "", "", "", "", ""], grid = "";
+for (var x=room.x0;x<room.x1-0.01;x+=0.25) {
+for (var y=room.y0;y<room.y1-0.01;y+=0.25) {
+var x1=Math.min(x+0.25,room.x1),y1=Math.min(y+0.25,room.y1),mx=(x+x1)/2,my=(y+y1)/2,light=0;
+room.light.forEach(function (w) { var dist=Math.hypot(mx-w[0],my-w[1]);light+=w[2]*Math.exp(-dist/1.15); });
+var da=100*(1-Math.exp(-2.3*light)), bin=da<10?0:da<30?1:da<50?2:da<70?3:da<90?4:5;
+var cell=flat(x,y,x1,y1,0.015);bins[bin]+=cell;grid+=cell;
 }
 }
-var floors = "", wins = "", southShades = "";
-[-0.25, -1.3, -2.35].forEach(function (z) { floors += polyOf([p(0, D, z), p(W, D, z), p(W, 0, z)]); });
-for (var k = 0; k < 3; k++) {
-var zt = -0.6 - 1.05 * k, zb = zt - 0.4;
-for (var x = 0.7; x < W - 0.8; x += 1.5) {
-wins += quadOf([p(x, D, zt), p(x + 0.7, D, zt), p(x + 0.7, D, zb), p(x, D, zb)]);
-southShades += quadOf([p(x - 0.1, D, zt + 0.05), p(x + 0.8, D, zt + 0.05), p(x + 0.8, D + 0.45, zt + 0.05), p(x - 0.1, D + 0.45, zt + 0.05)]);
+room.mesh=bins.map(function (d,i) {return {d:d,fill:colours[i]};});room.grid=grid;
+var label=p(room.label[0],room.label[1],0.08);room.lx=label[0];room.ly=label[1];
+});
+var slab=flat(-0.18,-0.18,W+0.18,D+0.18,0),slabEdge=wall(-0.18,D+0.18,W+0.18,D+0.18,-0.22)+wall(W+0.18,D+0.18,W+0.18,-0.18,-0.22);
+// Roof is displaced upwards and slightly left; dotted guides keep its relationship clear.
+function rp(x,y,z) {var q=p(x,y,z===undefined?5.9:z);return [q[0]-40,q[1]-12];}
+var roof=quadOf([rp(-0.2,-0.2),rp(W+0.2,-0.2),rp(W+0.2,D+0.2),rp(-0.2,D+0.2)]);
+var roofEdge=quadOf([rp(-0.2,D+0.2),rp(W+0.2,D+0.2),rp(W+0.2,D+0.2,5.72),rp(-0.2,D+0.2,5.72)])+quadOf([rp(W+0.2,-0.2),rp(W+0.2,D+0.2),rp(W+0.2,D+0.2,5.72),rp(W+0.2,-0.2,5.72)]);
+var roofInset=polyOf([rp(0.2,0.2),rp(W-0.2,0.2),rp(W-0.2,D-0.2),rp(0.2,D-0.2),rp(0.2,0.2)]),guides="";
+[[0,0],[W,0],[W,D],[0,D]].forEach(function(q){guides+=polyOf([rp(q[0],q[1],5.72),p(q[0],q[1],2.1)]);});
+var roofLeader=polyOf([[460,94],[448,94],rp(W,1.5)]);
+var backWalls=wall(0,0,W,0,2.1)+wall(0,D,0,0,2.1),backCaps=polyOf([p(0,D,2.1),p(0,0,2.1),p(W,0,2.1)]);
+var partitions="",partitionCaps="";
+// Door gaps connect each room to the central hall.
+[[3.38,0,3.38,3],[5.18,0,5.18,3],[5.18,4,5.18,7],[0,3,2.1,3],[2.85,3,3.8,3],[4.55,3,6.4,3],[7.15,3,9,3],[0,4,2.6,4],[3.4,4,6.2,4],[7,4,9,4]].forEach(function(q){partitions+=wall(q[0],q[1],q[2],q[3],0.5);partitionCaps+=polyOf([p(q[0],q[1],0.5),p(q[2],q[3],0.5)]);});
+var frontWalls=wall(0,D,W,D,0.3)+wall(W,D,W,0,0.3),windows="",frames="",southShades="",westFins="";
+function window(x0,y0,x1,y1,top) {
+windows+=quadOf([p(x0,y0,0.4),p(x1,y1,0.4),p(x1,y1,top),p(x0,y0,top)]);
+frames+=polyOf([p((x0+x1)/2,(y0+y1)/2,0.4),p((x0+x1)/2,(y0+y1)/2,top)]);
 }
-var zt2 = -0.5 - 1.05 * k, zb2 = zt2 - 0.58;
-for (var y = 0.7; y < D - 0.8; y += 1.5) {
-wins += quadOf([p(W, y, zt2), p(W, y + 1.0, zt2), p(W, y + 1.0, zb2), p(W, y, zb2)]);
-
-}
-}
-var parts = "";
-[5, 10, 14].forEach(function (x) { parts += polyOf([p(x, 0), p(x, c0)]); });
-[4, 9, 13.5].forEach(function (x) { parts += polyOf([p(x, c1), p(x, D)]); });
-parts += polyOf([p(0, c0), p(W, c0)]) + polyOf([p(0, c1), p(W, c1)]);
-// Shading at the exposed top-floor windows remains visible in the cutaway.
-var topWindows = "", topSouthShades = "", westFins = "";
-NW.forEach(function (w) {
-topWindows += quadOf([p(w - wN / 2, 0, 0.1), p(w + wN / 2, 0, 0.1), p(w + wN / 2, 0, 0.85), p(w - wN / 2, 0, 0.85)]);
-});
-SW.forEach(function (w) {
-var x0 = w - wS / 2, x1 = w + wS / 2;
-topWindows += quadOf([p(x0, D, 0.1), p(x1, D, 0.1), p(x1, D, 0.8), p(x0, D, 0.8)]);
-topSouthShades += quadOf([p(x0 - 0.1, D, 0.85), p(x1 + 0.1, D, 0.85), p(x1 + 0.1, D + 0.45, 0.85), p(x0 - 0.1, D + 0.45, 0.85)]);
-});
-GW.forEach(function (w) {
-topWindows += quadOf([p(0, w - wW / 2, 0.1), p(0, w + wW / 2, 0.1), p(0, w + wW / 2, 0.8), p(0, w - wW / 2, 0.8)]);
-topWindows += quadOf([p(W, w - wE / 2, 0.1), p(W, w + wE / 2, 0.1), p(W, w + wE / 2, 0.85), p(W, w - wE / 2, 0.85)]);
-[w - wW / 2 - 0.05, w + wW / 2 + 0.05].forEach(function (y) {
-westFins += quadOf([p(0, y, 0.05), p(-0.5, y, 0.05), p(-0.5, y, 0.95), p(0, y, 0.95)]);
-});
-});
-var gz = 0.9;
-var ghost = polyOf([p(0, 0, gz), p(W, 0, gz), p(W, D, gz), p(0, D, gz), p(0, 0, gz)]);
-[[0, 0], [W, 0], [W, D], [0, D]].forEach(function (c) { ghost += polyOf([p(c[0], c[1], 0), p(c[0], c[1], gz)]); });
-return {
-d0: bins[0], d1: bins[1], d2: bins[2], d3: bins[3], d4: bins[4], d5: bins[5], corr: corr,
-plate: quadOf([p(0, 0), p(W, 0), p(W, D), p(0, D)]),
-outer: quadOf([p(0, 0), p(W, 0), p(W, D), p(0, D)]),
-faceF: quadOf([p(0, D, 0), p(W, D, 0), p(W, D, -H), p(0, D, -H)]),
-faceR: quadOf([p(W, 0, 0), p(W, D, 0), p(W, D, -H), p(W, 0, -H)]),
-floors: floors, wins: wins, southShades: southShades, topWindows: topWindows, topSouthShades: topSouthShades, westFins: westFins, parts: parts, ghost: ghost, grid: grid, glaz: glaz
-};
+[[0.45,2.9],[3.8,4.75],[5.85,8.45]].forEach(function(w){window(w[0],0,w[1],0,1.85);});
+[[0.6,2.4],[3,4.7],[5.7,8.4]].forEach(function(w){window(w[0],D,w[1],D,1.3);southShades+=flat(w[0]-0.1,D,w[1]+0.1,D+0.45,1.4);});
+[[0.55,2.45],[4.4,6.5]].forEach(function(w){window(0,w[0],0,w[1],1.8);[w[0]-0.08,w[1]+0.08].forEach(function(y){westFins+=quadOf([p(0,y,0.3),p(-0.45,y,0.3),p(-0.45,y,1.95),p(0,y,1.95)]);});});
+[[0.4,2.65],[4.25,6.6]].forEach(function(w){window(W,w[0],W,w[1],1.55);});
+var furniture="",furnitureDetail="";
+// Familiar furniture gives the domestic rooms scale without covering their daylight mesh.
+[[0.85,0.55,2.25,2.05],[6,0.55,7.55,2.05]].forEach(function(b){furniture+=flat(b[0],b[1],b[2],b[3],0.1);furnitureDetail+=flat(b[0]+0.12,b[1]+0.12,b[2]-0.12,b[1]+0.45,0.11)+polyOf([p(b[0],b[1]+0.65,0.11),p(b[2],b[1]+0.65,0.11)]);});
+furniture+=flat(3.65,0.35,4.45,1.15,0.1)+flat(4.65,1.35,4.98,2.05,0.1);
+furnitureDetail+=polyOf([p(3.65,0.35,0.12),p(4.45,1.15,0.12)])+polyOf([p(4.45,0.35,0.12),p(3.65,1.15,0.12)]);
+furniture+=flat(0.55,4.45,1.45,6.45,0.12)+flat(2.1,5,3.2,5.65,0.08);
+furnitureDetail+=polyOf([p(0.8,4.45,0.14),p(0.8,6.45,0.14)])+polyOf([p(0.8,5.12,0.14),p(1.45,5.12,0.14)])+polyOf([p(0.8,5.78,0.14),p(1.45,5.78,0.14)]);
+furniture+=flat(5.45,4.18,8.65,4.7,0.12)+flat(8.1,4.7,8.65,5.45,0.12)+flat(6.2,5.2,7.3,6.05,0.1);
+furnitureDetail+=flat(5.75,4.28,6.3,4.6,0.14)+flat(7.25,4.28,7.75,4.6,0.14);
+[[5.85,5.38,6.1,5.85],[7.4,5.38,7.65,5.85]].forEach(function(c){furniture+=flat(c[0],c[1],c[2],c[3],0.06);});
+function point(x,y,z){var q=p(x,y,z);return {x:q[0],y:q[1]};}
+return {rooms:rooms,slab:slab,slabEdge:slabEdge,roof:roof,roofEdge:roofEdge,roofInset:roofInset,guides:guides,roofLeader:roofLeader,backWalls:backWalls,backCaps:backCaps,partitions:partitions,partitionCaps:partitionCaps,frontWalls:frontWalls,windows:windows,frames:frames,southShades:southShades,westFins:westFins,furniture:furniture,furnitureDetail:furnitureDetail,n:point(6,-0.8,0),e:point(9.6,3.5,0),s:point(4.5,7.9,0),w:point(-0.9,3.5,0)};
 })();
 
 /* 05 Rhino / Grasshopper: massing viewport + node canvas */
